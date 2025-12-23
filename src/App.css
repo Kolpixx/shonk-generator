@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Modak&display=swap');
+
+:root {
+    background-color: #151515;
+    --accent-color: #CAE6FF;
+    --background: #151515;
+    --background-1: #1C1C1C;
+    --background-2: #2C2C2C;
+
+    --red: #C90D0D;
+    --green: #0DC93F;
+}
+
+#preview {
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+
+label {
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 75px;
+    padding: 50px 20px 25px 20px;
+}
+
+h1 {
+    color: white;
+    font-family: "Cherry Bomb One", system-ui;
+    font-size: 5rem;
+}
+
+h2 {
+    color: var(--accent-color);
+    font-family: "Modak", system-ui;
+    font-weight: lighter;
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+label {
+    color: var(--accent-color);
+    font-family: "Modak", system-ui;
+    font-weight: lighter;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+section {
+    position: relative;
+    padding: 40px 20px;
+    background-color: var(--background-1);
+    border-radius: 15px;
+}
+
+section[data-title]::before {
+    content: attr(data-title);
+    font-family: "Modak", system-ui;
+    font-size: 30px;
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    padding: 8px 12px;
+    line-height: 30px;
+    border-radius: 10px;
+    background-color: var(--background-2);
+    color: var(--accent-color);
+}
+
+#preview {
+    font-family: "JetBrains Mono", system-ui;
+    & p {
+        filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+        font-weight: bold;
+    }
+}
+
+#customization input[type=color] {
+    height: 50px;
+    width: 50px;
+    border: 2px solid var(--background);
+    border-radius: 10px;
+    appearance: none;
+}
+
+#customization input[type="checkbox"] {
+    height: 35px;
+    width: 35px;
+    border: 2px solid var(--background);
+    border-radius: 10px;
+}
+
+#add-color {
+    height: 50px;
+    width: 50px;
+    border: 2px solid var(--background);
+    border-radius: 10px;
+    background: var(--background-2);
+}
+
+#customization {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 20%;
+    height: 50%;
+}
+
+.settings-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#customization-colors-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* To get rid of the weird border around the color in color input */
+#customization input[type="color"]::-moz-color-swatch {
+  border: none;
+}
+
+#customization input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 0;
+}
+
+#customization input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
