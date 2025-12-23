@@ -11,11 +11,6 @@
     --green: #0DC93F;
 }
 
-#preview {
-    white-space: pre-wrap;
-    font-family: monospace;
-}
-
 label {
     color: white;
 }
@@ -76,69 +71,4 @@ section[data-title]::before {
     border-radius: 10px;
     background-color: var(--background-2);
     color: var(--accent-color);
-}
-
-#preview {
-    font-family: "JetBrains Mono", system-ui;
-    & p {
-        filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
-        font-weight: bold;
-    }
-}
-
-#customization input[type=color] {
-    height: 50px;
-    width: 50px;
-    border: 2px solid var(--background);
-    border-radius: 10px;
-    appearance: none;
-}
-
-#customization input[type="checkbox"] {
-    height: 35px;
-    width: 35px;
-    border: 2px solid var(--background);
-    border-radius: 10px;
-}
-
-#add-color {
-    height: 50px;
-    width: 50px;
-    border: 2px solid var(--background);
-    border-radius: 10px;
-    background: var(--background-2);
-}
-
-#customization {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 20%;
-    height: 50%;
-}
-
-.settings-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#customization-colors-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-/* To get rid of the weird border around the color in color input */
-#customization input[type="color"]::-moz-color-swatch {
-  border: none;
-}
-
-#customization input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
-  border-radius: 0;
-}
-
-#customization input[type="color"]::-webkit-color-swatch {
-  border: none;
 }
