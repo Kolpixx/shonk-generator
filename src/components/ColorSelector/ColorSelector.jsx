@@ -21,6 +21,6 @@ export default function ColorSelector() {
     }, [color]);
 
     return (
-        <div className="color-picker" onClick={selectColor} style={{backgroundColor: color}} data-color={color}></div>
+        <div className="color-picker pointer" onClick={selectColor} style={{backgroundColor: color}} data-color={color}></div>
     )
 }

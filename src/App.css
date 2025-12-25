@@ -72,3 +72,7 @@ section[data-title]::before {
     background-color: var(--background-2);
     color: var(--accent-color);
 }
+
+.pointer {
+    cursor: pointer;
+}

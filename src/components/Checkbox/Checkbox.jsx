@@ -12,7 +12,7 @@ export default function Checkbox({ defaultValue }) {
     }, [enabled]);
  
     return (
-        <div className="checkbox" id="option-loop" data-checked={enabled} onClick={() => {toggleEnabled(!enabled)}}>
+        <div className="checkbox pointer" id="option-loop" data-checked={enabled} onClick={() => {toggleEnabled(!enabled)}}>
             {enabled && <Check size={32} color={accentColor} strokeWidth={1.75} />}
         </div>
     )

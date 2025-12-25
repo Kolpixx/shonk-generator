@@ -15,7 +15,7 @@ export default function Customization() {
                 <h2>Colors</h2>
                 <div id="customization-colors-buttons">
                     {colorInputs}
-                    <button id="add-color" onClick={() => {{setColorInputs([...colorInputs, <ColorSelector colorInputsLength={colorInputs.length} />]); updateShonk();}}}><Plus size={44} color={accentColor} strokeWidth={1.75} /></button>
+                    <button className="pointer" id="add-color" onClick={() => {{setColorInputs([...colorInputs, <ColorSelector colorInputsLength={colorInputs.length} />]); updateShonk();}}}><Plus size={44} color={accentColor} strokeWidth={1.75} /></button>
                 </div>
             </div>
             <div id="customization-preferences">
