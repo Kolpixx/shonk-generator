@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './ColorSelector.css'
 import { updateShonk } from '../../utils';
 
-export default function ColorSelector({ colorInputsLength }) {
+export default function ColorSelector() {
     const [color, setColor] = useState("#FFFFFF");
 
     function selectColor() {
@@ -21,6 +21,6 @@ export default function ColorSelector({ colorInputsLength }) {
     }, [color]);
 
     return (
-        <div className="color-picker" id={`color-${colorInputsLength + 1}`} onClick={selectColor} style={{backgroundColor: color}} data-color={color}></div>
+        <div className="color-picker" onClick={selectColor} style={{backgroundColor: color}} data-color={color}></div>
     )
 }

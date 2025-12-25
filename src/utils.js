@@ -15,10 +15,11 @@ export function updateShonk() {
 
     // Get user colors
     const colors = [];
-    for (let i = 1; i <= colorAmount; i++) {
-        colors.push(document.getElementById(`color-${i}`).getAttribute("data-color"));
-        console.log("Registered color:", document.getElementById(`color-${i}`).getAttribute("data-color"));
-    }
+
+    Array.from(document.getElementsByClassName("color-picker")).forEach((element) => {
+        colors.push(element.getAttribute("data-color"));
+        console.log("Registered color", element.getAttribute("data-color"))
+    });
 
     const split = Math.round(shonkArray.length / colors.length);
 

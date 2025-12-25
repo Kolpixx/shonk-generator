@@ -6,7 +6,7 @@ import { accentColor } from '../../consts'
 import ColorSelector from '../ColorSelector/ColorSelector'
 
 export default function Customization() {
-    const [colorInputs, setColorInputs] = useState([<ColorSelector colorInputsLength={0} />])
+    const [colorInputs, setColorInputs] = useState([<ColorSelector />])
 
     return (
         <section id="customization" data-title="Settings">
