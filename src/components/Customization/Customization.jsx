@@ -1,11 +1,12 @@
 import './Customization.css'
 import { updateShonk } from '../../utils'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Plus } from 'lucide-react'
 import { accentColor } from '../../consts'
+import ColorSelector from '../ColorSelector/ColorSelector'
 
 export default function Customization() {
-    const [colorInputs, setColorInputs] = useState([<input id="color-1" className="color-picker" type="color" defaultValue="#FFFFFF" onChange={updateShonk}></input>])
+    const [colorInputs, setColorInputs] = useState([<ColorSelector colorInputsLength={0} />])
 
     return (
         <section id="customization" data-title="Settings">
@@ -13,7 +14,7 @@ export default function Customization() {
                 <h2>Colors</h2>
                 <div id="customization-colors-buttons">
                     {colorInputs}
-                    <button id="add-color" onClick={() => {{setColorInputs([...colorInputs, <input id={`color-${colorInputs.length + 1}`} className="color-picker" type="color" defaultValue="#FFFFFF" onChange={updateShonk}></input>]); updateShonk()}}}><Plus size={44} color={accentColor} strokeWidth={1.75} /></button>
+                    <button id="add-color" onClick={() => {{setColorInputs([...colorInputs, <ColorSelector colorInputsLength={colorInputs.length} />]); updateShonk();}}}><Plus size={44} color={accentColor} strokeWidth={1.75} /></button>
                 </div>
             </div>
             <div id="customization-preferences">
