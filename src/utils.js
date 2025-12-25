@@ -11,19 +11,17 @@ export function updateShonk() {
     const shonk = default_shonk();
     const shonkArray = shonk.split(/\r\n|\n/);
 
-    const colorAmount = document.getElementsByClassName("color-picker").length;
-
     // Get user colors
     const colors = [];
 
     Array.from(document.getElementsByClassName("color-picker")).forEach((element) => {
         colors.push(element.getAttribute("data-color"));
-        console.log("Registered color", element.getAttribute("data-color"))
+        console.log("Registered color", element.getAttribute("data-color"));
     });
 
     const split = Math.round(shonkArray.length / colors.length);
 
-    if (document.getElementById("option-loop").checked) {
+    if (document.getElementById("option-loop").getAttribute("data-checked") === "true") {
         for (let i = 0; i < shonkArray.length; i++) {
             document.getElementById(`preview-line-${i}`).style.color = colors[i % colors.length];
         }

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Plus } from 'lucide-react'
 import { accentColor } from '../../consts'
 import ColorSelector from '../ColorSelector/ColorSelector'
+import Checkbox from '../Checkbox/Checkbox'
 
 export default function Customization() {
     const [colorInputs, setColorInputs] = useState([<ColorSelector />])
@@ -21,7 +22,7 @@ export default function Customization() {
                 <h2>Preferences</h2>
                 <div id="customization-preferences-settings">
                     <div className="settings-checkbox">
-                        <input id="option-loop" type="checkbox" onChange={updateShonk}></input>
+                        <Checkbox defaultValue={false} />
                         <label for="option-loop">Loop</label>
                     </div>
                 </div>
