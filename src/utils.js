@@ -13,11 +13,16 @@ export function updateShonk() {
 
     // Get user colors
     const colors = [];
+    const colorPickerClass = Array.from(document.getElementsByClassName("color-picker"));
 
-    Array.from(document.getElementsByClassName("color-picker")).forEach((element) => {
-        colors.push(element.getAttribute("data-color"));
-        console.log("Registered color", element.getAttribute("data-color"));
-    });
+    if (colorPickerClass.length === 0) { // Fallback
+        colors.push("#FFFFFF");
+    } else {
+        Array.from(document.getElementsByClassName("color-picker")).forEach((element) => {
+            colors.push(element.getAttribute("data-color"));
+            console.log("Registered color", element.getAttribute("data-color"));
+        });
+    }
 
     const split = Math.round(shonkArray.length / colors.length);
 
