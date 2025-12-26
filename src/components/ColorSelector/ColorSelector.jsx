@@ -50,6 +50,10 @@ export default function ColorSelector({color, index, colors, setColors}) {
         updateShonk();
     }, [color]);
 
+    useEffect(() => {
+        selectColor();
+    }, []);
+
     return (
         <div 
             className="color-picker pointer"
