@@ -3,3 +3,18 @@
     font-family: "JetBrains Mono", system-ui;
     position: relative;
 }
+
+#download-button {
+    transition: 0.3s ease all;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: var(--background-2);
+    border: none;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+#download-button:hover {
+    background-color: var(--background-2-hover);
+}

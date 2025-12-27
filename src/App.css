@@ -3,9 +3,15 @@
 :root {
     background-color: #151515;
     --accent-color: #CAE6FF;
+
     --background: #151515;
     --background-1: #1C1C1C;
     --background-2: #2C2C2C;
+
+    /* Lighten by 20% */
+    --background-hover: #474747;
+    --background-1-hover: #4f4f4f;
+    --background-2-hover: #4f4f4f;
 
     --red: #C90D0D;
     --green: #0DC93F;

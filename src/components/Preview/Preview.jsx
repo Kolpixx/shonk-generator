@@ -2,8 +2,21 @@ import { useEffect } from 'react';
 import { default_shonk as shonk } from '../../shonks';
 import './Preview.css'
 import getLongestString from '../../utils';
+import { Download } from 'lucide-react';
+import { accentColor } from '../../consts';
 
 export default function Preview({ colors }) {
+    
+    function downloadShonk() {
+        const canvas = document.getElementById("preview-canvas");
+        const dataURL = canvas.toDataURL();
+
+        const link = document.createElement("a");
+        link.download = "shonk.png";
+        link.href = dataURL;
+        link.click();
+    }
+
     useEffect(() => {
         const shonkArray = shonk.split(/\r\n|\n/);
         const split = Math.round(shonkArray.length / colors.length);
@@ -39,6 +52,7 @@ export default function Preview({ colors }) {
     return (
         <section id="preview" data-title="Preview">
             <canvas id="preview-canvas">Seems like your browser doesn't support the canvas element :P (The site won't work without it!!)</canvas>
+            <button id="download-button" className="pointer" onClick={() => downloadShonk()}><Download size={32} color={accentColor} strokeWidth={1.75} /></button>
         </section>
     )
 }
