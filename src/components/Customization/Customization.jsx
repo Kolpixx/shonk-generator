@@ -1,17 +1,13 @@
 import './Customization.css'
-import { updateShonk } from '../../utils'
-import { useEffect, useState } from 'react'
 import { Plus } from 'lucide-react'
 import { accentColor } from '../../consts'
 import ColorSelector from '../ColorSelector/ColorSelector'
 import Checkbox from '../Checkbox/Checkbox'
 
-export default function Customization() {
-    const [colors, setColors] = useState(["#FFFFFF"]);
-
-    useEffect(() => {
-        updateShonk();
-    }, [colors]);
+export default function Customization({ colors, setColors }) {
+    function updateShonk() {
+        setColors([...colors]);
+    }
 
     return (
         <section id="customization" data-title="Settings">
@@ -25,6 +21,7 @@ export default function Customization() {
                             index={index}
                             colors={colors}
                             setColors={setColors}
+                            updateShonk={updateShonk}
                         />
                     )}
                     <button className="pointer" id="add-color" onClick={() => {setColors([...colors, "#FFFFFF"])}}>
@@ -40,7 +37,10 @@ export default function Customization() {
                 <h2>Preferences</h2>
                 <div id="customization-preferences-settings">
                     <div className="settings-checkbox">
-                        <Checkbox defaultValue={false} />
+                        <Checkbox
+                            defaultValue={false}
+                            updateShonk={updateShonk}
+                        />
                         <label htmlFor="option-loop">Loop</label>
                     </div>
                 </div>

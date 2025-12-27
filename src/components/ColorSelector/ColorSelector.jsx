@@ -1,8 +1,7 @@
 import './ColorSelector.css'
 import { useEffect } from 'react';
-import { updateShonk } from '../../utils';
 
-export default function ColorSelector({color, index, colors, setColors}) {
+export default function ColorSelector({color, index, colors, setColors, updateShonk}) {
     function selectColor() {
         const input = document.createElement("input");
         input.type = "color";

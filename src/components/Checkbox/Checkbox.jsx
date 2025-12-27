@@ -2,9 +2,8 @@ import './Checkbox.css'
 import { useEffect, useState } from "react"
 import { accentColor } from "../../consts";
 import { Check } from "lucide-react";
-import { updateShonk } from '../../utils';
 
-export default function Checkbox({ defaultValue }) {
+export default function Checkbox({ defaultValue, updateShonk }) {
     const [enabled, toggleEnabled] = useState(defaultValue);
 
     useEffect(() => {
