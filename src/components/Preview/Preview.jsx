@@ -1,9 +1,9 @@
+import './Preview.css'
 import { useEffect } from 'react';
 import { default_shonk as shonk } from '../../shonks';
-import './Preview.css'
-import getLongestString from '../../utils';
 import { Download } from 'lucide-react';
 import { accentColor } from '../../consts';
+import getLongestString from '../../utils';
 
 export default function Preview({ colors }) {
     
