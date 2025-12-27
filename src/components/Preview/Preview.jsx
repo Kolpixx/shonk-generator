@@ -23,7 +23,7 @@ export default function Preview({ colors }) {
                 
         const canvas = document.getElementById("preview-canvas");
         const ctx = canvas.getContext("2d");
-        canvas.width = ctx.measureText(getLongestString(shonkArray)).width
+        canvas.width = ctx.measureText(getLongestString(shonkArray)).width;
         canvas.height = shonkArray.length * 20 + 20;
         ctx.font = "bold 16px JetBrains Mono";
         ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
