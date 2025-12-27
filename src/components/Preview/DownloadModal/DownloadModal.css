@@ -1,0 +1,55 @@
+#download-modal-container {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    & > div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+#scale-slider {
+    appearance: none;
+    background: var(--background-2);
+    height: 20px;
+    border-radius: 5px;
+}
+
+#scale-slider::webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: var(--background-1);
+    border: 2px solid var(--background);
+}
+
+#scale-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: var(--background-1);
+    border: 2px solid var(--background);
+}
+
+#background-color-picker {
+    appearance: none;
+    border: 2px solid var(--background);
+    height: 35px;
+    width: 35px;
+    border-radius: 10px;
+}
+
+#modal-download {
+    border: 2px solid var(--background);
+    background: var(--background-2);
+    font-family: "Modak", system-ui;
+    font-size: 1.7rem;
+    color: var(--text);
+    border-radius: 10px;
+    transition: 0.3s ease all;
+
+    &:hover {
+        color: var(--accent-color);
+        background: var(--background-2-hover);
+    }
+}

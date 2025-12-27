@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Modak&display=swap');
 
+@font-face {
+    font-family: "JetBrain Mono NL";
+    src: local("JetBrains Mono");
+    font-variant-ligatures: none;
+}
+
 :root {
     background-color: #151515;
     --accent-color: #CAE6FF;
 
+    /* Text */
+    --text: #f5faff;
+
+    /* Backgrounds */
     --background: #151515;
     --background-1: #1C1C1C;
     --background-2: #2C2C2C;
@@ -15,10 +25,6 @@
 
     --red: #C90D0D;
     --green: #0DC93F;
-}
-
-label {
-    color: white;
 }
 
 main {
@@ -44,7 +50,7 @@ h2 {
 }
 
 label {
-    color: var(--accent-color);
+    color: var(--text);
     font-family: "Modak", system-ui;
     font-weight: lighter;
     font-size: 2rem;
@@ -81,4 +87,23 @@ section[data-title]::before {
 
 .pointer {
     cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal-container {
+    background-color: var(--background-1);
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--text);
 }
