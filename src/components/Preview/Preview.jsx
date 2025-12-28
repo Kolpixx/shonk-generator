@@ -19,7 +19,7 @@ export default function Preview({ colors }) {
         // Bruh why is this so weird
         ctx.font = font;
         canvas.width = (ctx.measureText(longestString).width) * scale;
-        canvas.height = (shonkArray.length * 20 + 20) * scale;
+        canvas.height = (10 + (shonkArray.length * 20)) * scale; // The 10 is just pi mal daumen idk
 
         ctx.font = font;
         ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
