@@ -39,6 +39,20 @@
     border-radius: 10px;
 }
 
+/* To get rid of the weird border around the color in color input */
+#background-color-picker::-moz-color-swatch {
+    border: none;
+}
+
+#background-color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: 0;
+}
+
+#background-color-picker::-webkit-color-swatch {
+    border: none;
+}
+
 #modal-download {
     border: 2px solid var(--background);
     background: var(--background-2);

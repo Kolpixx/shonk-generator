@@ -69,6 +69,7 @@ section {
     padding: 40px 20px;
     background-color: var(--background-1);
     border-radius: 15px;
+    height: fit-content;
 }
 
 section[data-title]::before {

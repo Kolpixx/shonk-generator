@@ -46,17 +46,3 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-
-/* To get rid of the weird border around the color in color input */
-#customization input[type="color"]::-moz-color-swatch {
-  border: none;
-}
-
-#customization input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
-  border-radius: 0;
-}
-
-#customization input[type="color"]::-webkit-color-swatch {
-  border: none;
-}
