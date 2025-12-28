@@ -24,7 +24,7 @@ export default function DownloadModal({showDownloadModal, downloadShonk}) {
                         <label htmlFor="background-color-picker">Background</label>
                     </div>
                 }
-                <button id="modal-download" onClick={() => {downloadShonk(scale, (!transparentBG ? document.getElementById("background-color-picker").value : "transparent")); showDownloadModal(false)}}>Download</button>
+                <button id="modal-download" className="pointer" onClick={() => {downloadShonk(scale, (!transparentBG ? document.getElementById("background-color-picker").value : "transparent")); showDownloadModal(false)}}>Download</button>
             </div>
         </div>
     )

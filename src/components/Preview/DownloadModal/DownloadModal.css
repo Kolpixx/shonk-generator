@@ -22,6 +22,7 @@
     height: 25px;
     background: var(--background-1);
     border: 2px solid var(--background);
+    cursor: pointer;
 }
 
 #scale-slider::-moz-range-thumb {
@@ -29,6 +30,7 @@
     height: 25px;
     background: var(--background-1);
     border: 2px solid var(--background);
+    cursor: pointer;
 }
 
 #background-color-picker {
@@ -37,6 +39,7 @@
     height: 35px;
     width: 35px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /* To get rid of the weird border around the color in color input */

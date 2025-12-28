@@ -3,7 +3,7 @@
 }
 
 #canvas-container {
-    overflow: scroll;
+    overflow: auto;
 }
 
 #download-button {
