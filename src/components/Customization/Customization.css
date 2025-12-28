@@ -41,6 +41,12 @@
     flex-wrap: wrap;
 }
 
+#preset-combinations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 /* To get rid of the weird border around the color in color input */
 #customization input[type="color"]::-moz-color-swatch {
   border: none;

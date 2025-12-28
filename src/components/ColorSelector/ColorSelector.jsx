@@ -49,9 +49,9 @@ export default function ColorSelector({color, index, colors, setColors, updateSh
         updateShonk();
     }, [color]);
 
-    useEffect(() => {
-        selectColor();
-    }, []);
+    // useEffect(() => {
+    //     selectColor();
+    // }, []);
 
     return (
         <div 

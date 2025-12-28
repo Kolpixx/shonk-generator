@@ -1,12 +1,19 @@
 import './Customization.css'
 import { Plus } from 'lucide-react'
-import { accentColor } from '../../consts'
+import { accentColor, presetColors } from '../../consts'
 import ColorSelector from '../ColorSelector/ColorSelector'
 import Checkbox from '../Checkbox/Checkbox'
+import PresetColors from './PresetColors/PresetColors'
 
 export default function Customization({ colors, setColors }) {
     function updateShonk() {
         setColors([...colors]);
+    }
+
+    const presetColorCombinations = [];
+
+    for (const colorCombination in presetColors) {
+        presetColorCombinations.push(<PresetColors setColors={setColors} label={colorCombination} colors={presetColors[colorCombination]} key={`combination-${presetColorCombinations.length}`} />)
     }
 
     return (
@@ -43,6 +50,12 @@ export default function Customization({ colors, setColors }) {
                         />
                         <label htmlFor="option-loop">Loop</label>
                     </div>
+                </div>
+            </div>
+            <div id="presets">
+                <h2>Presets</h2>
+                <div id="preset-combinations">
+                    {presetColorCombinations}
                 </div>
             </div>
         </section>
