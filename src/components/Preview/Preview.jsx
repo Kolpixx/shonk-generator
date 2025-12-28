@@ -76,7 +76,9 @@ export default function Preview({ colors }) {
     
     return (
         <section id="preview" data-title="Preview">
-            <canvas id="preview-canvas">Seems like your browser doesn't support the canvas element :P (The site won't work without it!!)</canvas>
+            <div id="canvas-container">
+                <canvas id="preview-canvas">Seems like your browser doesn't support the canvas element :P (The site won't work without it!!)</canvas>
+            </div>
             <button id="download-button" className="pointer" onClick={() => showDownloadModal(true)}><Download size={32} color={accentColor} strokeWidth={1.75} /></button>
         
             {showingDownloadModal && <DownloadModal showDownloadModal={showDownloadModal} downloadShonk={downloadShonk} />}

@@ -39,6 +39,7 @@ h1 {
     color: white;
     font-family: "Cherry Bomb One", system-ui;
     font-size: 5rem;
+    text-align: center;
 }
 
 h2 {
@@ -86,8 +87,10 @@ section[data-title]::before {
     color: var(--accent-color);
 }
 
-.pointer {
-    cursor: pointer;
+@media (max-width: 1200px) {
+    section {
+        width: 90%;
+    }
 }
 
 .modal {

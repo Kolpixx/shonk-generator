@@ -2,6 +2,10 @@
     position: relative;
 }
 
+#canvas-container {
+    overflow: scroll;
+}
+
 #download-button {
     transition: 0.3s ease all;
     position: absolute;
