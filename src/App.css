@@ -111,3 +111,7 @@ section[data-title]::before {
     border-radius: 10px;
     color: var(--text);
 }
+
+.pointer {
+    cursor: pointer;
+}
