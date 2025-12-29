@@ -1,11 +1,14 @@
 import './Customization.css'
-import { Plus } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown, ChevronUp, Plus } from 'lucide-react'
 import { accentColor, presetColors } from '../../consts'
 import ColorSelector from '../ColorSelector/ColorSelector'
 import Checkbox from '../Checkbox/Checkbox'
 import PresetColors from './PresetColors/PresetColors'
 
 export default function Customization({ colors, setColors }) {
+    const [showingPresets, showPresets] = useState(false);
+
     function updateShonk() {
         setColors([...colors]);
     }
@@ -53,9 +56,9 @@ export default function Customization({ colors, setColors }) {
                 </div>
             </div>
             <div id="presets">
-                <h2>Presets</h2>
+                <h2 className="pointer" onClick={() => showPresets(!showingPresets)}>Presets {showingPresets ? <ChevronUp size={32} strokeWidth={2} /> : <ChevronDown size={32} strokeWidth={2} />}</h2>
                 <div id="preset-combinations">
-                    {presetColorCombinations}
+                    {showingPresets && presetColorCombinations}
                 </div>
             </div>
         </section>

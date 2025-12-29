@@ -47,6 +47,12 @@
   gap: 10px;
 }
 
+#presets > h2 {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
 @media (max-width: 1200px) {
     #customization {
         width: 90%;
