@@ -2,11 +2,13 @@ import './Customization.css'
 import { useState } from 'react'
 import { ChevronDown, ChevronUp, Plus } from 'lucide-react'
 import { accentColor, presetColors } from '../../consts'
+import { shonkVariants } from '../../shonks'
 import ColorSelector from '../ColorSelector/ColorSelector'
 import Checkbox from '../Checkbox/Checkbox'
 import PresetColors from './PresetColors/PresetColors'
+import Dropdown from '../Dropdown/Dropdown'
 
-export default function Customization({ colors, setColors }) {
+export default function Customization({ colors, setColors, variant, setVariant }) {
     const [showingPresets, showPresets] = useState(false);
 
     function updateShonk() {
@@ -53,6 +55,11 @@ export default function Customization({ colors, setColors }) {
                         />
                         <label htmlFor="option-loop">Loop</label>
                     </div>
+                        <Dropdown
+                            options={shonkVariants}
+                            state={variant}
+                            setState={setVariant}
+                        />
                 </div>
             </div>
             <div id="presets">

@@ -53,6 +53,12 @@
     align-items: center;
 }
 
+#customization-preferences-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 @media (max-width: 1200px) {
     #customization {
         width: 90%;

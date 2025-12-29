@@ -1,16 +1,15 @@
 import './Preview.css'
 import { useEffect, useState } from 'react';
-import { default_shonk as shonk } from '../../shonks';
 import { Download } from 'lucide-react';
 import { accentColor } from '../../consts';
 import { getLongestString } from '../../utils';
 import DownloadModal from './DownloadModal/DownloadModal';
 
-export default function Preview({ colors }) {
+export default function Preview({ colors, variant }) {
     const [showingDownloadModal, showDownloadModal] = useState(false);
     
     function generateShonk(canvas, ctx, scale, bgColor) {
-        const shonkArray = shonk.split(/\r\n|\n/);
+        const shonkArray = variant.split(/\r\n|\n/);
         const split = Math.round(shonkArray.length / colors.length);
         const longestString = getLongestString(shonkArray);
 
@@ -79,7 +78,7 @@ export default function Preview({ colors }) {
         const ctx = canvas.getContext("2d");
 
         generateShonk(canvas, ctx, 1, "transparent");
-    }, [colors]);
+    }, [colors, variant]);
     
     return (
         <section id="preview" data-title="Preview">
