@@ -5,6 +5,7 @@
 }
 
 .dropdown-selected {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,6 +16,7 @@
     padding: 10px;
     background: var(--background-2);
     color: var(--text);
+    z-index: 2;
     & > p {
         display: flex;
         align-items: center;
@@ -27,6 +29,7 @@
 }
 
 .dropdown-options {
+    position: relative;
     display: flex;
     flex-direction: column;
     border: 2px solid var(--background);
@@ -34,6 +37,7 @@
     border-radius: 0 0 10px 10px;
     color: var(--text);
     overflow: hidden;
+    z-index: 2;
 }
 
 .dropdown-option {
@@ -41,4 +45,15 @@
     &:hover {
         background: var(--background-2-hover);
     }
+}
+
+/* Wow, this looks like horrible practice... 😭😭 */
+
+.dropdown-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
 }
