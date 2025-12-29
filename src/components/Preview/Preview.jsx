@@ -14,19 +14,26 @@ export default function Preview({ colors }) {
         const split = Math.round(shonkArray.length / colors.length);
         const longestString = getLongestString(shonkArray);
 
+        // Okay screw this, mobile shi can wait
+        const pixelRatio = window.devicePixelRatio;
         const font = "bold 16px JetBrains Mono NL";
 
         // Bruh why is this so weird
         ctx.font = font;
-        canvas.width = (ctx.measureText(longestString).width) * scale;
-        canvas.height = (10 + (shonkArray.length * 20)) * scale; // The 10 is just pi mal daumen idk
+        const width = (ctx.measureText(longestString).width) * scale;
+        const height = (10 + (shonkArray.length * 20)) * scale; // The 10 is just pi mal daumen idk
 
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+        canvas.width = Math.floor(width * pixelRatio);
+        canvas.height = Math.floor(height * pixelRatio);
+        
         ctx.font = font;
         ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
         ctx.shadowOffsetX = 1;
         ctx.shadowOffsetY = 1;
         
-        ctx.scale(scale, scale);
+        ctx.scale(scale * pixelRatio, scale * pixelRatio);
 
         // Set background color
         ctx.beginPath();
