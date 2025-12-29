@@ -15,5 +15,11 @@ export const presetColors = {
     "Genderfluid": ["#FF76A4", "#FFFFFF", "#C011D7", "#000000", "#2F3CBE"],
     "Polysexual": ["#F714BA", "#01D66A", "#1594F6"],
     "Omnisexual": ["#FE9ACE", "#FF53BF", "#200044", "#6760FE", "#8EA6FF"],
-    "Non-Binary": ["#FCF434", "#FFFFFF", "#9C59D1", "#2C2C2C"]
+    "Non-Binary": ["#FCF434", "#FFFFFF", "#9C59D1", "#2C2C2C"],
+    "Femboy": ["#D261A5", "#E4AFCD", "#FEFEFE", "#57CEF8", "#FEFEFE", "#E4AFCD", "#D261A5"],
+    "Transbian": ["#00A2E8", "#FFB5CD", "#FFFFFF", "#FF9B55", "#A60062"],
+    "Agender": ["#000000", "#BCC4C7", "#FFFFFF", "#B7F684"],
+    "Aroace": ["#E28C00", "#ECCD00", "#FFFFFF", "#62AEDC", "#203856"],
+    "Bigender": ["#C479A2", "#EDA5CD", "#D6C7E8", "#FFFFFF", "#9AC7E8", "#6D82D1"],
+    "Philadelphia": ["#000000", "#784F17", "#D12229", "#F68A1E", "#FDE01A", "#007940", "#24408E", "#732982"]
 }
