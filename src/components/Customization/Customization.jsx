@@ -64,9 +64,11 @@ export default function Customization({ colors, setColors, variant, setVariant }
             </div>
             <div id="presets">
                 <h2 className="pointer" onClick={() => showPresets(!showingPresets)}>Presets {showingPresets ? <ChevronUp size={32} strokeWidth={2} /> : <ChevronDown size={32} strokeWidth={2} />}</h2>
-                <div id="preset-combinations">
-                    {showingPresets && presetColorCombinations}
-                </div>
+                {showingPresets && (
+                    <div id="preset-combinations">
+                        {presetColorCombinations}
+                    </div>
+                )}
             </div>
         </section>
     )
