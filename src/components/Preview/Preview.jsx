@@ -10,15 +10,7 @@ export default function Preview({ colors, variant }) {
     
     function generateShonk(canvas, ctx, scale, bgColor) {
         const shonkArray = variant.split(/\r\n|\n/);
-        const split = Math.floor(shonkArray.length / colors.length);
         const longestString = getLongestString(shonkArray);
-
-        // Debugging
-        console.log(`ShonkArray has ${shonkArray.length} lines`);
-        console.log(`ShonkArray's length divided by number of colors is: ${shonkArray.length / colors.length} (Floored: ${Math.floor(shonkArray.length / colors.length)})`);
-        console.log(`Modulo of shonkArray's lengths divided by number of colors is (aka overshoot): ${shonkArray.length % colors.length}`);
-        // If I have an overshoot of 2 I'd want to increase first and last color, if 3 then first, second and last, if 4 then first, second, and last and the one before
-        
 
         // Okay screw this, mobile shi can wait
         const pixelRatio = window.devicePixelRatio;
