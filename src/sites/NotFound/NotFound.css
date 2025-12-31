@@ -1,0 +1,24 @@
+#not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 20px;
+
+    & button {
+        border: 2px solid var(--background-1);
+        background: var(--background-2);
+        font-family: var(--default-font), system-ui;
+        font-size: 2.3rem;
+        color: var(--text);
+        border-radius: 10px;
+        transition: 0.3s ease all;
+        padding: 5px 15px;
+
+        &:hover {
+            color: var(--accent-color);
+            background: var(--background-2-hover);
+        }
+    }
+}
