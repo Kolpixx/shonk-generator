@@ -2,9 +2,10 @@ import './App.css'
 import { useState } from 'react'
 import { shonkVariants } from '../../shonks';
 import { GitBranch } from 'lucide-react';
+import { textColor2 } from '../../consts';
+import { Link } from 'react-router-dom';
 import Customization from '../../components/Customization/Customization'
 import Preview from '../../components/Preview/Preview'
-import { textColor2 } from '../../consts';
 
 function App() {
   const [colors, setColors] = useState(["#FFFFFF"]);
@@ -28,7 +29,9 @@ function App() {
         />
       </main>
       <footer>
-        <a href="./credits">Credits</a>
+        <Link to={"/credits"}>
+          <a>Credits</a>
+        </Link>
         <GitBranch
           size={44}
           color={textColor2}

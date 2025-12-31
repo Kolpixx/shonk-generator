@@ -1,6 +1,7 @@
 .dropdown-container {
     width: fit-content;
-    font-family: "Modak", system-ui;
+    font-family: var(--default-font), system-ui;
+    font-weight: 500;
     font-size: 1.7rem;
 }
 

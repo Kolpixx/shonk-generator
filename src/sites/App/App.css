@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Modak&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face {
     font-family: "JetBrain Mono NL";
@@ -14,6 +14,10 @@
     --text: #f5faff;
     --text-1: #95989c;
     --text-2: #737577;
+
+    /* Fonts */
+    --header-font: "Cherry Bomb One";
+    --default-font: "Sour Gummy";
 
     /* Backgrounds */
     --background: #151515;
@@ -46,23 +50,24 @@ main {
 
 h1 {
     color: white;
-    font-family: "Cherry Bomb One", system-ui;
+    font-family: var(--header-font), system-ui;
     font-size: 5rem;
     text-align: center;
 }
 
 h2 {
     color: var(--accent-color);
-    font-family: "Modak", system-ui;
-    font-weight: lighter;
+    font-family: var(--default-font), system-ui;
+    font-weight: bold;
     font-size: 2rem;
     text-decoration: underline;
+    margin-bottom: 5px;
 }
 
 label {
     color: var(--text);
-    font-family: "Modak", system-ui;
-    font-weight: lighter;
+    font-family: var(--default-font), system-ui;
+    font-weight: bold;
     font-size: 2rem;
     line-height: 2rem;
 }
@@ -119,7 +124,8 @@ section {
 
 section[data-title]::before {
     content: attr(data-title);
-    font-family: "Modak", system-ui;
+    font-family: var(--default-font), system-ui;
+    font-weight: bolder;
     font-size: 30px;
     position: absolute;
     top: -20px;

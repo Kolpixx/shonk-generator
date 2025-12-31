@@ -59,7 +59,7 @@
 #modal-download {
     border: 2px solid var(--background);
     background: var(--background-2);
-    font-family: "Modak", system-ui;
+    font-family: var(--default-font), system-ui;
     font-size: 1.7rem;
     color: var(--text);
     border-radius: 10px;
