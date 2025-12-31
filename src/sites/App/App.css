@@ -12,6 +12,8 @@
 
     /* Text */
     --text: #f5faff;
+    --text-1: #95989c;
+    --text-2: #737577;
 
     /* Backgrounds */
     --background: #151515;
@@ -27,12 +29,19 @@
     --green: #0DC93F;
 }
 
+#root {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
 main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 75px;
     padding: 50px 20px 25px 20px;
+    margin-bottom: 25px;
 }
 
 h1 {
@@ -58,11 +67,46 @@ label {
     line-height: 2rem;
 }
 
+li {
+    list-style: inside;
+    color: var(--text-2);
+}
+
+ul > li > ul {
+    padding-left: 20px;
+}
+
 header {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px;
+
+    & a {
+        transition: 0.3s ease all;
+        color: var(--text-2);
+        font-family: "JetBrains Mono NL";
+        font-size: 1.5rem;
+    }
+
+    & a:hover {
+        color: var(--accent-color);
+    }
+
+    & .lucide {
+        transition: 0.3s ease all;
+    }
+
+    & .lucide:hover {
+        stroke: var(--accent-color);
+    }
 }
 
 section {

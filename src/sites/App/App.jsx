@@ -1,8 +1,10 @@
 import './App.css'
 import { useState } from 'react'
-import Customization from './components/Customization/Customization'
-import Preview from './components/Preview/Preview'
-import { shonkVariants } from './shonks';
+import { shonkVariants } from '../../shonks';
+import { GitBranch } from 'lucide-react';
+import Customization from '../../components/Customization/Customization'
+import Preview from '../../components/Preview/Preview'
+import { textColor2 } from '../../consts';
 
 function App() {
   const [colors, setColors] = useState(["#FFFFFF"]);
@@ -25,6 +27,16 @@ function App() {
           variant={shonkVariants[variant]}
         />
       </main>
+      <footer>
+        <a href="./credits">Credits</a>
+        <GitBranch
+          size={44}
+          color={textColor2}
+          strokeWidth={1.75}
+          className="pointer"
+          onClick={() => window.open("https://github.com/Kolpixx/shonk-generator/")}
+        />
+      </footer>
     </>
   )
 }
