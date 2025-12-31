@@ -16,6 +16,7 @@
     right: 15px;
     background-color: var(--background-2);
     border: none;
+    padding: 7px;
     border-radius: 10px;
 }
 
