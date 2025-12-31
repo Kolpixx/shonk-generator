@@ -1,5 +1,8 @@
 #preview {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #canvas-container {
@@ -13,7 +16,6 @@
     right: 15px;
     background-color: var(--background-2);
     border: none;
-    padding: 7px;
     border-radius: 10px;
 }
 
