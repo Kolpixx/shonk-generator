@@ -1,0 +1,12 @@
+#credits-markdown {
+    & li {
+        color: var(--text);
+        font-family: "JetBrains Mono NL", system-ui;
+    }
+    & a {
+        color: var(--text);
+    }
+    & a:hover {
+        color: var(--accent-color);
+    }
+}
