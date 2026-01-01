@@ -7,13 +7,19 @@ import DownloadModal from './DownloadModal/DownloadModal';
 
 export default function Preview({ colors, variant }) {
     const [showingDownloadModal, showDownloadModal] = useState(false);
+
+    const canvasFontFace = new FontFace("JetBrains Mono NL", 'url("../fonts/JetBrainsMonoNL_Bold.ttf")');
+    canvasFontFace.weight = 800;
     
-    function generateShonk(canvas, ctx, scale, bgColor) {
+    async function generateShonk(canvas, ctx, scale, bgColor) {
         const shonkArray = variant.split(/\r\n|\n/);
         const longestString = getLongestString(shonkArray);
 
         const pixelRatio = window.devicePixelRatio;
 
+        if (!document.fonts.check("bold 16px JetBrains Mono NL")) {
+            await loadFont(canvasFontFace);
+        }
         const font = "bold 16px JetBrains Mono NL";
 
         // Bruh why is this so weird
@@ -86,13 +92,19 @@ export default function Preview({ colors, variant }) {
         link.click();
     }
 
+    async function loadFont(fontFace) {
+        await canvasFontFace.load();
+        console.log("Font loaded:", fontFace);
+        document.fonts.add(canvasFontFace);
+    }
+
     useEffect(() => {                
         const canvas = document.getElementById("preview-canvas");
         const ctx = canvas.getContext("2d");
 
         generateShonk(canvas, ctx, 1, "transparent");
     }, [colors, variant]);
-    
+
     return (
         <section id="preview" data-title="Preview">
             <div id="canvas-container">
