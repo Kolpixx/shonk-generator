@@ -34,9 +34,9 @@
 }
 
 #root {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    grid-template-rows: auto 1fr auto;
 }
 
 main {
@@ -93,6 +93,7 @@ footer {
     justify-content: space-between;
     align-items: baseline;
     padding: 5px;
+    margin-top: auto;
 
     & a {
         transition: 0.3s ease all;

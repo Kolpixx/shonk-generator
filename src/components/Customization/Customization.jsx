@@ -24,7 +24,6 @@ export default function Customization({ colors, setColors, variant, setVariant }
         }
     }, [variant]);
 
-
     const presetColorCombinations = [];
 
     for (const colorCombination in presetColors) {
