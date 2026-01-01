@@ -8,15 +8,11 @@ import DownloadModal from './DownloadModal/DownloadModal';
 export default function Preview({ colors, variant }) {
     const [showingDownloadModal, showDownloadModal] = useState(false);
     
-    async function generateShonk(canvas, ctx, scale, bgColor) {
+    function generateShonk(canvas, ctx, scale, bgColor) {
         const shonkArray = variant.split(/\r\n|\n/);
         const longestString = getLongestString(shonkArray);
 
         const pixelRatio = window.devicePixelRatio;
-
-        await document.fonts.ready.then(() => {
-            console.log("Fonts loaded!");
-        });
 
         const font = "bold 16px JetBrains Mono NL";
 
