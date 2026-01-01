@@ -2,7 +2,14 @@
 
 @font-face {
     font-family: 'JetBrains Mono NL';
+    src: url("../fonts/JetBrainsMonoNL_Regular.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono NL';
     src: url("../fonts/JetBrainsMonoNL_Bold.ttf");
+    font-weight: bold;
 }
 
 :root {
