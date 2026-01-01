@@ -29,9 +29,7 @@ function App() {
         />
       </main>
       <footer>
-        <Link to={"/credits"}>
-          <a>Credits</a>
-        </Link>
+        <Link to={"/credits"}>Credits</Link>
         <GitBranch
           size={44}
           color={textColor2}
