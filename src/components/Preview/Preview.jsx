@@ -12,7 +12,6 @@ export default function Preview({ colors, variant }) {
         const shonkArray = variant.split(/\r\n|\n/);
         const longestString = getLongestString(shonkArray);
 
-        // Okay screw this, mobile shi can wait
         const pixelRatio = window.devicePixelRatio;
 
         await document.fonts.ready.then(() => {
