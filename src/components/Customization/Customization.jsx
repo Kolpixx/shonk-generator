@@ -1,5 +1,5 @@
 import './Customization.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ChevronDown, ChevronUp, Plus } from 'lucide-react'
 import { accentColor, presetColors } from '../../consts'
 import { shonkVariants } from '../../shonks'
@@ -10,10 +10,20 @@ import Dropdown from '../Dropdown/Dropdown'
 
 export default function Customization({ colors, setColors, variant, setVariant }) {
     const [showingPresets, showPresets] = useState(false);
+    const shonkArray = shonkVariants[variant].split(/\r\n|\n/);
 
     function updateShonk() {
         setColors([...colors]);
     }
+
+    useEffect(() => {
+        if (colors.length > shonkArray.length) {
+            console.log()
+            colors.splice((colors.length - (colors.length - shonkArray.length)) - 1, colors.length - shonkArray.length);
+            updateShonk();
+        }
+    }, [variant]);
+
 
     const presetColorCombinations = [];
 
@@ -36,13 +46,15 @@ export default function Customization({ colors, setColors, variant, setVariant }
                             updateShonk={updateShonk}
                         />
                     )}
-                    <button className="pointer" id="add-color" onClick={() => {setColors([...colors, "#FFFFFF"])}}>
-                        <Plus
-                            size={44}
-                            color={accentColor}
-                            strokeWidth={1.75}
-                        />
-                    </button>
+                    {shonkArray.length > colors.length &&
+                        <button className="pointer" id="add-color" onClick={() => {setColors([...colors, "#FFFFFF"])}}>
+                            <Plus
+                                size={44}
+                                color={accentColor}
+                                strokeWidth={1.75}
+                            />
+                        </button>
+                    }
                 </div>
             </div>
             <div id="customization-preferences">
