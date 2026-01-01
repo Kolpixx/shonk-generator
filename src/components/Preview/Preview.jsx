@@ -8,12 +8,17 @@ import DownloadModal from './DownloadModal/DownloadModal';
 export default function Preview({ colors, variant }) {
     const [showingDownloadModal, showDownloadModal] = useState(false);
     
-    function generateShonk(canvas, ctx, scale, bgColor) {
+    async function generateShonk(canvas, ctx, scale, bgColor) {
         const shonkArray = variant.split(/\r\n|\n/);
         const longestString = getLongestString(shonkArray);
 
         // Okay screw this, mobile shi can wait
         const pixelRatio = window.devicePixelRatio;
+
+        await document.fonts.ready.then(() => {
+            console.log("Fonts loaded!");
+        });
+
         const font = "bold 16px JetBrains Mono NL";
 
         // Bruh why is this so weird
