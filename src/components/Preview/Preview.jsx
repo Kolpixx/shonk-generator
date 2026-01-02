@@ -2,17 +2,18 @@ import './Preview.css'
 import { useEffect, useState } from 'react';
 import { Download } from 'lucide-react';
 import { accentColor } from '../../consts';
-import { getLongestString } from '../../utils';
+import { bashHEX, getLongestString } from '../../utils';
 import DownloadModal from './DownloadModal/DownloadModal';
 
 export default function Preview({ colors, variant }) {
     const [showingDownloadModal, showDownloadModal] = useState(false);
+    const shonkArray = variant.split(/\r\n|\n/);
+    const colorArray = [...colors];
 
     const canvasFontFace = new FontFace("JetBrains Mono NL", 'url("../fonts/JetBrainsMonoNL_Bold.ttf")');
     canvasFontFace.weight = 800;
     
     async function generateShonk(canvas, ctx, scale, bgColor) {
-        const shonkArray = variant.split(/\r\n|\n/);
         const longestString = getLongestString(shonkArray);
 
         const pixelRatio = window.devicePixelRatio;
@@ -52,7 +53,6 @@ export default function Preview({ colors, variant }) {
                 ctx.fillText(shonkArray[i], 0, 20 * (i + 1));
             }
         } else {
-            const colorArray = [...colors];
             let currentColor = 0;
             let multiplier = 2;
 
@@ -92,6 +92,41 @@ export default function Preview({ colors, variant }) {
         link.click();
     }
 
+    function shonkToBash() {
+        console.log("Converting shonk to bash...");
+        let bashScript = "";
+
+        if (document.getElementById("option-loop").getAttribute("data-checked") === "true") {
+            for (let i = 0; i < shonkArray.length; i++) {
+                bashScript += bashHEX(colors[i % colors.length], shonkArray[i]);
+            }
+        } else {
+            let currentColor = 0;
+            let multiplier = 2;
+
+            for (let i = 0; i < shonkArray.length - colors.length; i++) {
+                if (currentColor > colors.length - 1) {
+                    currentColor = 0;
+                    multiplier++;
+                }
+
+                let startFrom;
+                
+                startFrom = multiplier * currentColor;
+
+                colorArray.splice(startFrom, 0, colors[currentColor]);
+
+                currentColor++;
+            }
+
+            colorArray.forEach((color, index) => {
+                bashScript += bashHEX(color, shonkArray[index]);
+            });
+        }
+
+        return new File(['echo -e "' + bashScript + '"'], "shonk.sh", {type: "text/plain"});
+    }
+
     async function loadFont(fontFace) {
         await canvasFontFace.load();
         console.log("Font loaded:", fontFace);
@@ -112,7 +147,7 @@ export default function Preview({ colors, variant }) {
             </div>
             <button id="download-button" className="pointer" onClick={() => showDownloadModal(true)}><Download size={32} color={accentColor} strokeWidth={1.75} /></button>
         
-            {showingDownloadModal && <DownloadModal showDownloadModal={showDownloadModal} downloadShonk={downloadShonk} />}
+            {showingDownloadModal && <DownloadModal showDownloadModal={showDownloadModal} downloadShonk={downloadShonk} shonkToBash={shonkToBash} />}
         </section>
     )
 }

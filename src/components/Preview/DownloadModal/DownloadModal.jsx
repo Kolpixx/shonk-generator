@@ -3,9 +3,16 @@ import { useState } from 'react'
 import { Check } from 'lucide-react';
 import { accentColor } from '../../../consts';
 
-export default function DownloadModal({showDownloadModal, downloadShonk}) {
+export default function DownloadModal({ showDownloadModal, downloadShonk, shonkToBash }) {
     const [transparentBG, setTransParentBG] = useState(true);
     const [scale, setScale] = useState(2);
+
+    function downloadBashScript() {
+        const link = document.createElement("a");
+        link.download = "shonk.sh";
+        link.href = URL.createObjectURL(shonkToBash());
+        link.click();
+    }
 
     return (
         <div className="modal" onClick={(e) => {e.target.classList[0] === "modal" && showDownloadModal(false)}}>
@@ -24,7 +31,10 @@ export default function DownloadModal({showDownloadModal, downloadShonk}) {
                         <label htmlFor="background-color-picker">Background</label>
                     </div>
                 }
-                <button id="modal-download" className="pointer" onClick={() => {downloadShonk(scale, (!transparentBG ? document.getElementById("background-color-picker").value : "transparent")); showDownloadModal(false)}}>Download</button>
+                <div id="download-modal-buttons">
+                    <button className="download-modal-button pointer" onClick={() => {downloadShonk(scale, (!transparentBG ? document.getElementById("background-color-picker").value : "transparent")); showDownloadModal(false)}}>Download</button>
+                    <button className="download-modal-button pointer" onClick={() => {downloadBashScript()}}>Export in bash</button>
+                </div>
             </div>
         </div>
     )
