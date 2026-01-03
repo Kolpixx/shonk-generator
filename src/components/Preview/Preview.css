@@ -12,6 +12,7 @@
 }
 
 #download-button {
+    opacity: 50%;
     transition: 0.3s ease all;
     position: absolute;
     bottom: 15px;
@@ -24,4 +25,5 @@
 
 #download-button:hover {
     background-color: var(--background-2-hover);
+    opacity: 100%;
 }

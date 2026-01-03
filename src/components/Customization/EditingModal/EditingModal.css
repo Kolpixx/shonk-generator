@@ -7,8 +7,8 @@
     height: 50%;
 }
 
-
 #editing-custom-save-button {
+    opacity: 50%;
     position: absolute;
     bottom: 35px;
     right: 35px;
@@ -16,6 +16,11 @@
     border: none;
     padding: 7px;
     border-radius: 10px;
+    transition: 0.2s ease all;
+    &:hover {
+        opacity: 100%;
+        background-color: var(--background-1-hover);
+    }
 }
 
 #editing-custom-textarea {
