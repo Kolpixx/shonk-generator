@@ -1,6 +1,6 @@
 import './PresetColors.css'
 
-export default function PresetColors({ setColors, label, colorCombination, shonkArray, colors }) {
+export default function PresetColors({ setColors, label, colorCombination, shonkArray }) {
     function updateColors() {
         const newColorCombination = [...colorCombination];
         if (colorCombination.length > shonkArray.length) {
