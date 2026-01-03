@@ -33,9 +33,10 @@ export default function Customization({ colors, setColors, variant, setVariant }
     }, [variant]);
 
     const presetColorCombinations = [];
+    for (const colorCombinationLabel in presetColors) {
+        const colorCombination = presetColors[colorCombinationLabel];
 
-    for (const colorCombination in presetColors) {
-        presetColorCombinations.push(<PresetColors setColors={setColors} label={colorCombination} colors={presetColors[colorCombination]} key={`combination-${presetColorCombinations.length}`} />)
+        presetColorCombinations.push(<PresetColors colors={colors} setColors={setColors} label={colorCombinationLabel} colorCombination={colorCombination} shonkArray={shonkArray} key={`combination-${presetColorCombinations.length}`} />)
     }
 
     return (
