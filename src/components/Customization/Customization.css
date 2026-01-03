@@ -59,6 +59,18 @@
     gap: 10px;
 }
 
+.settings-variants {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+#edit-custom-button {
+    background: none;
+    border: none;
+}
+
 @media (max-width: 1200px) {
     #customization {
         width: 90%;

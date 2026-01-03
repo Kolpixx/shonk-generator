@@ -33,6 +33,14 @@
     --green: #0DC93F;
 }
 
+.lucide {
+    transition: 0.3s ease all;
+}
+
+button:hover > .lucide {
+    stroke: var(--accent-color);
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -62,6 +70,13 @@ h2 {
     font-size: 2rem;
     text-decoration: underline;
     margin-bottom: 5px;
+}
+
+h3 {
+    color: var(--accent-color);
+    font-family: var(--default-font), system-ui;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 label {
@@ -166,4 +181,10 @@ section[data-title]::before {
 
 .pointer {
     cursor: pointer;
+}
+
+.icon-button {
+    background: var(--background-2);
+    border: 2px solid var(--background);
+    border-radius: 15px;
 }

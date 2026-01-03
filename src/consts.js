@@ -1,5 +1,6 @@
 // This seems like horrible practice 😭😭
 export const accentColor = "#CAE6FF";
+export const textColor =  "#f5faff";
 export const textColor2 = "#737577";
 
 // Preset colors

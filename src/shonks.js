@@ -61,5 +61,11 @@ export const shonkVariants = {
 ⠀⠀⠸⣧⣿⣧⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣯⠴⣩⠲⡅⣇⠳⠬⣍⣲⣭⣰⣿⢻⣿⡿⣷
 ⠀⠀⠀⠀⠉⠉⢿⣯⣉⣛⡛⠶⢶⣤⣤⣤⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣴⣣⣵⣼⣦⡿⢟⣛⣿⠿⠛⠋⠁⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠛⢿⠷⠶⣶⣭⣭⣭⣿⣷⣶⣟⣛⣛⣛⣛⣿⡶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⢚⣛⣛⣛⣿⣿⣭⣽⠶⠶⠛⠋⠉⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀` // https://emojicombos.com/blahaj-ascii-art
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀`, // https://emojicombos.com/blahaj-ascii-art
+  "Custom":
+    `Press the edit button next to the variant selector to change this text\n\n:3`
 };
+
+export function setCustomVariant(content) {
+  shonkVariants["Custom"] = content;
+}

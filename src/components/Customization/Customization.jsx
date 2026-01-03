@@ -1,15 +1,19 @@
 import './Customization.css'
 import { useEffect, useState } from 'react'
-import { ChevronDown, ChevronUp, Plus } from 'lucide-react'
+import { ChevronDown, ChevronUp, Plus, SquarePen } from 'lucide-react'
 import { accentColor, presetColors } from '../../consts'
 import { shonkVariants } from '../../shonks'
 import ColorSelector from '../ColorSelector/ColorSelector'
 import Checkbox from '../Checkbox/Checkbox'
 import PresetColors from './PresetColors/PresetColors'
 import Dropdown from '../Dropdown/Dropdown'
+import EditingModal from './EditingModal/EditingModal'
 
 export default function Customization({ colors, setColors, variant, setVariant }) {
     const [showingPresets, showPresets] = useState(false);
+    const [showingEditButton, showEditButton] = useState(false);
+    const [showingEditingScreen, showEditingScreen] = useState(false);
+
     const shonkArray = shonkVariants[variant].split(/\r\n|\n/);
 
     function updateShonk() {
@@ -17,6 +21,10 @@ export default function Customization({ colors, setColors, variant, setVariant }
     }
 
     useEffect(() => {
+        if (variant === "Custom") {
+            showEditButton(true);
+        }
+
         if (colors.length > shonkArray.length) {
             console.log()
             colors.splice((colors.length - (colors.length - shonkArray.length)) - 1, colors.length - shonkArray.length);
@@ -66,11 +74,29 @@ export default function Customization({ colors, setColors, variant, setVariant }
                         />
                         <label htmlFor="option-loop">Loop</label>
                     </div>
+                    <div className="settings-variants">
                         <Dropdown
                             options={shonkVariants}
                             state={variant}
                             setState={setVariant}
                         />
+                        {showingEditButton &&
+                            <button id="edit-custom-button">
+                                <SquarePen 
+                                    size={36}
+                                    color={accentColor}
+                                    strokeWidth={1.75}
+                                    onClick={() => {showEditingScreen(true)}}
+                                />
+                            </button>
+                        }
+                        {showingEditingScreen &&
+                            <EditingModal
+                                showEditingScreen={showEditingScreen}
+                                updateShonk={updateShonk}
+                            />
+                        }
+                    </div>
                 </div>
             </div>
             <div id="presets">
