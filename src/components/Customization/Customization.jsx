@@ -14,13 +14,14 @@ export default function Customization({ colors, setColors, variant, setVariant }
     const [showingEditButton, showEditButton] = useState(false);
     const [showingEditingScreen, showEditingScreen] = useState(false);
 
-    const shonkArray = shonkVariants[variant].split(/\r\n|\n/);
+    let shonkArray = shonkVariants[variant].split(/\r\n|\n/);
 
     function updateShonk() {
         setColors([...colors]);
     }
 
     useEffect(() => {
+        shonkArray = shonkVariants[variant].split(/\r\n|\n/);
         if (variant === "Custom") {
             showEditButton(true);
         }
@@ -30,7 +31,7 @@ export default function Customization({ colors, setColors, variant, setVariant }
             colors.splice((colors.length - (colors.length - shonkArray.length)) - 1, colors.length - shonkArray.length);
             updateShonk();
         }
-    }, [variant]);
+    }, [variant, showingEditingScreen]);
 
     const presetColorCombinations = [];
     for (const colorCombinationLabel in presetColors) {
