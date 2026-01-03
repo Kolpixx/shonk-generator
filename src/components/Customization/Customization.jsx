@@ -1,7 +1,7 @@
 import './Customization.css'
 import { useEffect, useState } from 'react'
 import { ChevronDown, ChevronUp, Plus, SquarePen } from 'lucide-react'
-import { accentColor, presetColors } from '../../consts'
+import { presetColors, textColor } from '../../consts'
 import { shonkVariants } from '../../shonks'
 import ColorSelector from '../ColorSelector/ColorSelector'
 import Checkbox from '../Checkbox/Checkbox'
@@ -57,7 +57,7 @@ export default function Customization({ colors, setColors, variant, setVariant }
                         <button className="pointer" id="add-color" onClick={() => {setColors([...colors, "#FFFFFF"])}}>
                             <Plus
                                 size={44}
-                                color={accentColor}
+                                color={textColor}
                                 strokeWidth={1.75}
                             />
                         </button>
@@ -84,7 +84,7 @@ export default function Customization({ colors, setColors, variant, setVariant }
                             <button id="edit-custom-button">
                                 <SquarePen 
                                     size={36}
-                                    color={accentColor}
+                                    color={textColor}
                                     strokeWidth={1.75}
                                     onClick={() => {showEditingScreen(true)}}
                                 />
