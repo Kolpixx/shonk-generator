@@ -1,16 +1,22 @@
-# React + Vite
+# Shonk Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This tool lets you apply different colors to a predefined Blåhaj variant or your own, custom ASCII-Art!
 
-Currently, two official plugins are available:
+## Images
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Banner
 
-## React Compiler
+<img src="./assets/banner.webp" height="1000px" alt='Banner for Shonk Generator with text: "Shonk Generator" (light blue, playful font), "Craft your beautiful Shonk ✨" (white, monospaced font and a formal/"beautiful" font for the word "beautiful"). It showcases three ASCII-Art examples: A Blåhaj in colors of the pride flag, two women kissing each other in the colors of the lesbian flag and a another Blåhaj in the colors of the Transsexual flag.'>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Interface
 
-## Expanding the ESLint configuration
+<img src="./assets/interface.webp" height="1000px" alt='Interface of the tool: Settings on the left, shonk preview on the right. You can change the colors, toggle the "loop" functionality, change the Shonk Variant and select a preset color combination.'>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Credits
+
+I copied the ASCII-Art for Variant #1 from [https://codeberg.org/GeopJr/BLAHAJ/src/branch/main/data/ascii.txt](https://codeberg.org/GeopJr/BLAHAJ/src/branch/main/data/ascii.txt), licensed under [BSD-2-Clause](./public/licenses/license-1.txt).
+You can find all credits in the [CREDITS.md](./public/CREDITS.md) or at [https://shonk.netlify.app/credits](https://shonk.netlify.app/credits).
+
+## License
+
+This project is licensed under [MIT](https://github.com/Kolpixx/shonk-generator/blob/main/LICENSE)
