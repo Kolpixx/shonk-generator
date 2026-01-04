@@ -12,6 +12,26 @@ export default function Preview({ colors, variant }) {
 
     const canvasFontFace = new FontFace("JetBrains Mono NL", 'url("../fonts/JetBrainsMonoNL_Bold.ttf")');
     canvasFontFace.weight = 800;
+
+    function colorize() {
+        let currentColor = 0;
+        let multiplier = 2;
+
+        for (let i = 0; i < shonkArray.length - colors.length; i++) {
+            if (currentColor > colors.length - 1) {
+                currentColor = 0;
+                multiplier++;
+            }
+
+            let startFrom;
+            
+            startFrom = multiplier * currentColor;
+
+            colorArray.splice(startFrom, 0, colors[currentColor]);
+
+            currentColor++;
+        }
+    }
     
     async function generateShonk(canvas, ctx, scale, bgColor) {
         const longestString = getLongestString(shonkArray);
@@ -53,23 +73,7 @@ export default function Preview({ colors, variant }) {
                 ctx.fillText(shonkArray[i], 0, 20 * (i + 1));
             }
         } else {
-            let currentColor = 0;
-            let multiplier = 2;
-
-            for (let i = 0; i < shonkArray.length - colors.length; i++) {
-                if (currentColor > colors.length - 1) {
-                    currentColor = 0;
-                    multiplier++;
-                }
-
-                let startFrom;
-
-                startFrom = multiplier * currentColor;
-
-                colorArray.splice(startFrom, 0, colors[currentColor]);
-
-                currentColor++;
-            }
+            colorize();
 
             colorArray.forEach((color, index) => {
                 ctx.fillStyle = color;
@@ -101,23 +105,7 @@ export default function Preview({ colors, variant }) {
                 bashScript += bashHEX(colors[i % colors.length], shonkArray[i]);
             }
         } else {
-            let currentColor = 0;
-            let multiplier = 2;
-
-            for (let i = 0; i < shonkArray.length - colors.length; i++) {
-                if (currentColor > colors.length - 1) {
-                    currentColor = 0;
-                    multiplier++;
-                }
-
-                let startFrom;
-                
-                startFrom = multiplier * currentColor;
-
-                colorArray.splice(startFrom, 0, colors[currentColor]);
-
-                currentColor++;
-            }
+            colorize();
 
             colorArray.forEach((color, index) => {
                 bashScript += bashHEX(color, shonkArray[index]);
