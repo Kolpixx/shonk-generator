@@ -15,6 +15,7 @@ This tool lets you apply different colors to a predefined Blåhaj variant or you
 ## Credits
 
 I copied the ASCII-Art for Variant #1 from [https://codeberg.org/GeopJr/BLAHAJ/src/branch/main/data/ascii.txt](https://codeberg.org/GeopJr/BLAHAJ/src/branch/main/data/ascii.txt), licensed under [BSD-2-Clause](./public/licenses/license-1.txt).
+
 You can find all credits in the [CREDITS.md](./public/CREDITS.md) or at [https://shonk.netlify.app/credits](https://shonk.netlify.app/credits).
 
 ## License
