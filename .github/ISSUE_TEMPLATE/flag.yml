@@ -1,5 +1,5 @@
-name: Flag Addition/Change
-description: Sugguest a new flag or propose a change
+name: Flag Addition
+description: Sugguest a new flag
 title: "[Flag]: "
 labels: ["enhancement"]
 assignees:
