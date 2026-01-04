@@ -14,7 +14,7 @@ This tool lets you apply different colors to a predefined Blåhaj variant or you
 
 ## Contributing
 
-If you want to add a flag or update an existing one, simply open a pull request with the change in the [consts.js](./src/consts.js). You can also create an Issue to propose a change or suggest a new flag using the [Flag Addition](https://github.com/Kolpixx/shonk-generator/issues/new?template=flag.yml) template.
+If you want to add a flag or update an existing one, simply open a pull request with the change in the [consts.js](./src/consts.js). You can also create an Issue to propose a change or suggest a new flag using the [Flag Addition template](https://github.com/Kolpixx/shonk-generator/issues/new?template=flag.yml).
 
 ## Credits
 
