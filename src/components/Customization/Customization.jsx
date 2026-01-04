@@ -24,6 +24,8 @@ export default function Customization({ colors, setColors, variant, setVariant }
         shonkArray = shonkVariants[variant].split(/\r\n|\n/);
         if (variant === "Custom") {
             showEditButton(true);
+        } else {
+            showEditButton(false);
         }
 
         if (colors.length > shonkArray.length) {
