@@ -1,5 +1,5 @@
 import './DownloadModal.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Check } from 'lucide-react';
 import { accentColor } from '../../../consts';
 
@@ -13,6 +13,11 @@ export default function DownloadModal({ showDownloadModal, downloadShonk, shonkT
         link.href = URL.createObjectURL(shonkToBash());
         link.click();
     }
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => document.body.style.overflow = "unset";
+    }, []);
 
     return (
         <div className="modal" onClick={(e) => {e.target.classList[0] === "modal" && showDownloadModal(false)}}>

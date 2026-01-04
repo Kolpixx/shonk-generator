@@ -2,8 +2,14 @@ import './EditingModal.css'
 import { setCustomVariant, shonkVariants } from '../../../shonks'
 import { Save } from 'lucide-react';
 import { textColor } from '../../../consts';
+import { useEffect } from 'react';
 
 export default function EditingModal({ showEditingScreen, updateShonk }) {
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => document.body.style.overflow = "unset";
+    }, []);
+
     return (
         <div className="modal" onClick={(e) => {e.target.classList[0] === "modal" && showEditingScreen(false)}}>
             <div className="modal-container" id="editing-modal-container">
