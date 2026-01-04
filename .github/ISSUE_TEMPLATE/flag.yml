@@ -1,0 +1,26 @@
+name: Flag Addition/Change
+description: Sugguest a new flag or propose a change
+labels: ["enhancement"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name of the flag
+    validations:
+      required: true
+  - type: textarea
+    id: colors
+    attributes:
+      label: Flag Colors
+      placeholder: |
+        1. #FF218C
+        2. #FFD800
+        3. #21B...
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      placeholder: |
+        Add any other context or screenshots about the feature request here.
