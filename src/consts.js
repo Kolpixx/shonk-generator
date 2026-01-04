@@ -5,7 +5,7 @@ export const textColor2 = "#737577";
 
 // Preset colors
 export const presetColors = {
-    "Pride": ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004CFF", "#732982"],
+    "Rainbow Pride": ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004CFF", "#732982"],
     "Ally": ["#000000", "#FFFFFF", "#F00000", "#FFFF00", "#007A41", "#4041FE", "#A001BE"],
     "Lesbian": ["#D52D00", "#EF7627", "#FF9A56", "#FFFFFF", "#D162A4", "#B55690", "#A30262"],
     "Gay Men": ["#078D70", "#26CEAA", "#98E8C1", "#FFFFFF", "#7BADE2", "#5049CC", "#3D1A78"],
@@ -23,5 +23,11 @@ export const presetColors = {
     "Agender": ["#000000", "#BCC4C7", "#FFFFFF", "#B7F684"],
     "Aroace": ["#E28C00", "#ECCD00", "#FFFFFF", "#62AEDC", "#203856"],
     "Bigender": ["#C479A2", "#EDA5CD", "#D6C7E8", "#FFFFFF", "#9AC7E8", "#6D82D1"],
-    "Philadelphia": ["#000000", "#784F17", "#D12229", "#F68A1E", "#FDE01A", "#007940", "#24408E", "#732982"]
+    "Philadelphia": ["#000000", "#784F17", "#D12229", "#F68A1E", "#FDE01A", "#007940", "#24408E", "#732982"],
+    "Pangender": ["#FFF798", "#FFDDCD", "#FFEBFB", "#FFFFFF", "#FFEBFB", "#FFDDCD", "#FFF798"],
+    "Genderqueer": ["#B57EDC", "#FFFFFF", "#4A8123"],
+    "Genderflux": ["#F57694", "#F2A3B9", "#CFCFCF", "#7BE1F5", "#3ECDFA", "#FFF48C"],
+    "Demiboy": ["#7F7F7F", "#C4C4C4", "#9DD7EA", "#FFFFFF", "#9DD7EA", "#C4C4C4", "#7F7F7F"],
+    "Demigirl": ["#7F7F7F", "#C4C4C4", "#FDADC8", "#FFFFFF", "#FDADC8", "#C4C4C4", "#7F7F7F"],
+    "Abrosexual": ["#76CB93", "#B4E4CB", "#FFFFFF", "#E896B4", "#DB426C"]
 }
