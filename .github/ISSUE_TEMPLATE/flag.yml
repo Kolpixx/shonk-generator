@@ -1,6 +1,9 @@
 name: Flag Addition/Change
 description: Sugguest a new flag or propose a change
+title: "[Flag]: "
 labels: ["enhancement"]
+assignees:
+  - Kolpixx
 body:
   - type: input
     id: name
@@ -23,4 +26,4 @@ body:
     attributes:
       label: Additional context
       placeholder: |
-        Add any other context or screenshots about the feature request here.
+        Optionally add further context or an image of the flag here
