@@ -61,7 +61,7 @@
 
 .settings-variants {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 5px;
     flex-wrap: wrap;
 }
@@ -69,6 +69,7 @@
 #edit-custom-button {
     background: none;
     border: none;
+    padding: 4px;
 }
 
 @media (max-width: 1200px) {
