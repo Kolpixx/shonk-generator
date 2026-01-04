@@ -12,6 +12,10 @@ This tool lets you apply different colors to a predefined Blåhaj variant or you
 
 <img src="./assets/interface.webp" height="1000px" alt='Interface of the tool: Settings on the left, shonk preview on the right. You can change the colors, toggle the "loop" functionality, change the Shonk Variant and select a preset color combination.'>
 
+## Contributing
+
+If you want to add a flag or update an existing one, simply open a pull request with the change in the [consts.js](./src/consts.js). You can also create an Issue to propose a change or suggest a new flag using the [Flag Addition](https://github.com/Kolpixx/shonk-generator/issues/new?template=flag.yml) template.
+
 ## Credits
 
 I copied the ASCII-Art for Variant #1 from [https://codeberg.org/GeopJr/BLAHAJ/src/branch/main/data/ascii.txt](https://codeberg.org/GeopJr/BLAHAJ/src/branch/main/data/ascii.txt), licensed under [BSD-2-Clause](./public/licenses/license-1.txt).
