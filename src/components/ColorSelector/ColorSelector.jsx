@@ -3,17 +3,16 @@ import { useEffect } from 'react';
 
 export default function ColorSelector({color, index, colors, setColors, updateShonk}) {
     function selectColor() {
-        const input = document.createElement("input");
-        input.type = "color";
-        input.defaultValue = color || "#FFFFFF";
-        input.click();
+        const colorInput = document.getElementById("color-input-" + index);
 
-        input.addEventListener("change", (e) => {
+        colorInput.addEventListener("change", (e) => {
             const newArray = [...colors];
             newArray.splice(index, 1, e.target.value);
 
             setColors(newArray);
         });
+
+        colorInput.click();
     }
 
     // Somehow need to tell the user that you can delete colors w/ right click or maybe not idk.
@@ -56,11 +55,13 @@ export default function ColorSelector({color, index, colors, setColors, updateSh
     return (
         <div 
             className="color-picker pointer"
-            onClick={selectColor}
+            onClick={() => selectColor()}
             style={{backgroundColor: color}}
             data-color={color}
             onContextMenu={(e) => {handleOnContextMenu(e)}}
-            onMouseDown={(e) => {handleMouseDown(e)}}>
+            onMouseDown={(e) => {handleMouseDown(e)}}
+        >
+            <input type="color" id={"color-input-" + index} defaultValue={color || "#FFFFFF"}></input>
         </div>
     )
 }

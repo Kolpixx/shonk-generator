@@ -5,4 +5,7 @@
     border-radius: 10px;
     appearance: none;
     transition: 0.3s ease all;
+    & > input {
+        visibility: hidden;
+    }
 }
