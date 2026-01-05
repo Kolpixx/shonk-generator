@@ -5,7 +5,7 @@ export default function ColorSelector({color, index, colors, setColors, updateSh
     function selectColor() {
         const input = document.createElement("input");
         input.type = "color";
-        input.defaultValue = "#FFFFFF";
+        input.defaultValue = color || "#FFFFFF";
         input.click();
 
         input.addEventListener("change", (e) => {
