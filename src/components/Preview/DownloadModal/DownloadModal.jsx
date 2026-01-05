@@ -28,7 +28,7 @@ export default function DownloadModal({ showDownloadModal, downloadShonk, shonkT
                     <div className="checkbox pointer" id="download-transparent" data-checked={transparentBG} onClick={() => {setTransParentBG(!transparentBG)}}>
                         {transparentBG && <Check size={32} color={accentColor} strokeWidth={1.75} />}
                     </div>
-                    <label htmlFor="download-transparent">Transparent</label>
+                    <label htmlFor="download-transparent">Transparent BG</label>
                 </div>
                 {!transparentBG &&
                     <div>
