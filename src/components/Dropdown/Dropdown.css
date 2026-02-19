@@ -1,4 +1,5 @@
 .dropdown-container {
+    position: relative;
     width: fit-content;
     font-family: var(--default-font), system-ui;
     font-weight: 500;
@@ -30,7 +31,9 @@
 }
 
 .dropdown-options {
-    position: relative;
+    position: absolute;
+    width: 100%;
+    top: 100%;
     display: flex;
     flex-direction: column;
     border: 2px solid var(--background);
