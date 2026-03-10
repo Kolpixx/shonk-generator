@@ -72,6 +72,32 @@
     padding: 4px;
 }
 
+#customization-category-nav {
+    position: absolute;
+    left: -48px;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    & > li {
+        width: fit-content;
+        background: var(--background-1);
+        padding: 8px;
+        border-radius: 12px 0 0 12px;
+        list-style: none;
+        transition: .2s ease background;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--background-2);
+        }
+    }
+}
+
 @media (max-width: 1200px) {
     #customization {
         width: 90%;

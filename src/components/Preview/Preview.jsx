@@ -1,5 +1,6 @@
 import './Preview.css'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { LoopedContext } from '../../sites/App/App';
 import { Download } from 'lucide-react';
 import { textColor } from '../../consts';
 import { bashHEX, getLongestString } from '../../utils';
@@ -7,8 +8,14 @@ import DownloadModal from './DownloadModal/DownloadModal';
 
 export default function Preview({ colors, variant }) {
     const [showingDownloadModal, showDownloadModal] = useState(false);
+    const [looped] = useContext(LoopedContext);
     const shonkArray = variant.split(/\r\n|\n/);
     const colorArray = [...colors];
+
+    useEffect(() => {
+        console.log("updated preview");
+        console.log(looped);
+    }, [colors]);
 
     const canvasFontFace = new FontFace("JetBrains Mono NL", 'url("../fonts/JetBrainsMonoNL_Bold.ttf")');
     canvasFontFace.weight = 800;
@@ -67,7 +74,7 @@ export default function Preview({ colors, variant }) {
         ctx.fill();
 
         // Bahahaha don't look at this!! :p
-        if (document.getElementById("option-loop").getAttribute("data-checked") === "true") {
+        if (looped === true) {
             for (let i = 0; i < shonkArray.length; i++) {
                 ctx.fillStyle = colors[i % colors.length];
                 ctx.fillText(shonkArray[i], 0, 20 * (i + 1));

@@ -3,16 +3,14 @@ import { useEffect, useState } from "react"
 import { accentColor } from "../../consts";
 import { Check } from "lucide-react";
 
-export default function Checkbox({ defaultValue, updateShonk }) {
-    const [enabled, toggleEnabled] = useState(defaultValue);
-
+export default function Checkbox({ updateShonk, state, setState }) {
     useEffect(() => {
         updateShonk();
-    }, [enabled]);
+    }, [state]);
  
     return (
-        <div className="checkbox pointer" id="option-loop" data-checked={enabled} onClick={() => {toggleEnabled(!enabled)}}>
-            {enabled && <Check size={32} color={accentColor} strokeWidth={1.75} />}
+        <div className="checkbox pointer" id="option-loop" data-checked={state} onClick={() => {setState(!state)}}>
+            {state && <Check size={32} color={accentColor} strokeWidth={1.75} />}
         </div>
     )
 }
