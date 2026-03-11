@@ -31,3 +31,16 @@ export const presetColors = {
     "Demigirl": ["#7F7F7F", "#C4C4C4", "#FDADC8", "#FFFFFF", "#FDADC8", "#C4C4C4", "#7F7F7F"],
     "Abrosexual": ["#76CB93", "#B4E4CB", "#FFFFFF", "#E896B4", "#DB426C"]
 }
+
+// Fonts
+export const fontVariants = {
+    "JetBrains Mono NL": "JetBrains Mono NL",
+    "Roboto Mono": "Roboto Mono",
+    "Bytesized": "Bytesized",
+    "Kode Mono": "Kode Mono",
+    "Fira Code": "Fira Code",
+    "Doto": "Doto",
+    "Syne Mono": "Syne Mono",
+    "Workbench": "Workbench",
+    "Nova Mono": "Nova Mono"
+}

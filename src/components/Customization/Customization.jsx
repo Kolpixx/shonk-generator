@@ -6,6 +6,7 @@ import { shonkVariants } from '../../shonks'
 import { VariantContext } from '../../sites/App/App'
 import GeneralCategory from './Categories/General/General'
 import ColorsCategory from './Categories/Colors/Colors'
+import TextCategory from './Categories/Text/Text'
 
 export default function Customization({ colors, setColors }) {
     const [category, setCategory] = useState("general");
@@ -53,6 +54,7 @@ export default function Customization({ colors, setColors }) {
             </ul>
             {category === "general" && <GeneralCategory updateShonk={updateShonk} />}
             {category === "colors" && <ColorsCategory updateShonk={updateShonk} shonkArray={shonkArray} />}
+            {category === "text" && <TextCategory updateShonk={updateShonk} />}
         </section>
     )
 }

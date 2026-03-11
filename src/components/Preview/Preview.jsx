@@ -1,6 +1,6 @@
 import './Preview.css'
 import { useContext, useEffect, useState } from 'react';
-import { LoopedContext } from '../../sites/App/App';
+import { FontContext, LoopedContext } from '../../sites/App/App';
 import { Download } from 'lucide-react';
 import { textColor } from '../../consts';
 import { bashHEX, getLongestString } from '../../utils';
@@ -8,6 +8,7 @@ import DownloadModal from './DownloadModal/DownloadModal';
 
 export default function Preview({ colors, variant }) {
     const [showingDownloadModal, showDownloadModal] = useState(false);
+    const [font, setFont] = useContext(FontContext);
     const [looped] = useContext(LoopedContext);
     const shonkArray = variant.split(/\r\n|\n/);
     const colorArray = [...colors];
@@ -37,45 +38,47 @@ export default function Preview({ colors, variant }) {
 
         const pixelRatio = window.devicePixelRatio;
 
-        const font = "bold 16px JetBrains Mono NL";
+        document.fonts.load(`bold 16px ${font}`).then(() => {
+            const fontDef = `bold 16px ${font}`;
 
-        // Bruh why is this so weird
-        ctx.font = font;
-        const width = (ctx.measureText(longestString).width) * scale;
-        const height = (10 + (shonkArray.length * 20)) * scale; // The 10 is just pi mal daumen idk
+            // Bruh why is this so weird
+            ctx.font = fontDef;
+            const width = (ctx.measureText(longestString).width) * scale;
+            const height = (10 + (shonkArray.length * 20)) * scale; // The 10 is just pi mal daumen idk
 
-        canvas.style.width = width + "px";
-        canvas.style.height = height + "px";
-        canvas.width = Math.floor(width * pixelRatio);
-        canvas.height = Math.floor(height * pixelRatio);
-        
-        ctx.font = font;
-        ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
-        ctx.shadowOffsetX = 1;
-        ctx.shadowOffsetY = 1;
-        
-        ctx.scale(scale * pixelRatio, scale * pixelRatio);
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+            canvas.width = Math.floor(width * pixelRatio);
+            canvas.height = Math.floor(height * pixelRatio);
+            
+            ctx.font = fontDef;
+            ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
+            ctx.shadowOffsetX = 1;
+            ctx.shadowOffsetY = 1;
+            
+            ctx.scale(scale * pixelRatio, scale * pixelRatio);
 
-        // Set background color
-        ctx.beginPath();
-        ctx.fillStyle = bgColor;
-        ctx.rect(0, 0, canvas.width, canvas.height);
-        ctx.fill();
+            // Set background color
+            ctx.beginPath();
+            ctx.fillStyle = bgColor;
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fill();
 
-        // Bahahaha don't look at this!! :p
-        if (looped === true) {
-            for (let i = 0; i < shonkArray.length; i++) {
-                ctx.fillStyle = colors[i % colors.length];
-                ctx.fillText(shonkArray[i], 0, 20 * (i + 1));
+            // Bahahaha don't look at this!! :p
+            if (looped === true) {
+                for (let i = 0; i < shonkArray.length; i++) {
+                    ctx.fillStyle = colors[i % colors.length];
+                    ctx.fillText(shonkArray[i], 0, 20 * (i + 1));
+                }
+            } else {
+                colorize();
+
+                colorArray.forEach((color, index) => {
+                    ctx.fillStyle = color;
+                    ctx.fillText(shonkArray[index], 0, 20 * (index + 1));
+                });
             }
-        } else {
-            colorize();
-
-            colorArray.forEach((color, index) => {
-                ctx.fillStyle = color;
-                ctx.fillText(shonkArray[index], 0, 20 * (index + 1));
-            });
-        }
+        })
     }
 
     function downloadShonk(scale, bgColor) {

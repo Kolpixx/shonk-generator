@@ -7,8 +7,9 @@ export default function Dropdown({ options, state, setState }) {
 
     return (
         <div className="dropdown-container">
-            <div className="dropdown-selected pointer" data-showing={showingOptions}>
-                <p onClick={() => showOptions(!showingOptions)}>{state} {showingOptions ? <ChevronUp size={32} strokeWidth={2} /> : <ChevronDown size={32} strokeWidth={2} />}</p>
+            <div className="dropdown-selected pointer" data-showing={showingOptions} onClick={() => showOptions(!showingOptions)}>
+                <p>{state}</p>
+                {showingOptions ? <ChevronUp size={32} strokeWidth={2} /> : <ChevronDown size={32} strokeWidth={2} />}
             </div>
             {showingOptions && (
                 <>

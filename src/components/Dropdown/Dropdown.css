@@ -4,6 +4,7 @@
     font-family: var(--default-font), system-ui;
     font-weight: 500;
     font-size: 1.7rem;
+    min-width: 200px;
 }
 
 .dropdown-selected {

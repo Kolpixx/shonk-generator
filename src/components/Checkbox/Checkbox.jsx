@@ -1,5 +1,5 @@
 import './Checkbox.css'
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { accentColor } from "../../consts";
 import { Check } from "lucide-react";
 
