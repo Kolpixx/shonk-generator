@@ -12,9 +12,6 @@ export default function Preview({ colors, variant }) {
     const shonkArray = variant.split(/\r\n|\n/);
     const colorArray = [...colors];
 
-    const canvasFontFace = new FontFace("JetBrains Mono NL", 'url("../fonts/JetBrainsMonoNL_Bold.ttf")');
-    canvasFontFace.weight = 800;
-
     function colorize() {
         let currentColor = 0;
         let multiplier = 2;
@@ -40,9 +37,6 @@ export default function Preview({ colors, variant }) {
 
         const pixelRatio = window.devicePixelRatio;
 
-        if (!document.fonts.check("bold 16px JetBrains Mono NL")) {
-            await loadFont(canvasFontFace);
-        }
         const font = "bold 16px JetBrains Mono NL";
 
         // Bruh why is this so weird
@@ -134,12 +128,6 @@ export default function Preview({ colors, variant }) {
         }
 
         return new File(["function shonk\n", fishScript, "\nend\n"], "shonk.fish", {type: "text/plain"});
-    }
-
-    async function loadFont(fontFace) {
-        await canvasFontFace.load();
-        console.log("Font loaded:", fontFace);
-        document.fonts.add(canvasFontFace);
     }
 
     useEffect(() => {                
