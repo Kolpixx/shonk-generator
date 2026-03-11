@@ -9,7 +9,7 @@ export function bashHEX(hex, content) {
     return `\\e[38;2;${rgb[0]};${rgb[1]};${rgb[2]}m${content}\\n`
 }
 
-function hexToRGB(hex) {
+export function hexToRGB(hex) {
     const aRgbHex = hex.replace("#", "").match(/.{1,2}/g);
     const aRgb = [
         parseInt(aRgbHex[0], 16),

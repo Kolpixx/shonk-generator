@@ -12,11 +12,6 @@ export default function Preview({ colors, variant }) {
     const shonkArray = variant.split(/\r\n|\n/);
     const colorArray = [...colors];
 
-    useEffect(() => {
-        console.log("updated preview");
-        console.log(looped);
-    }, [colors]);
-
     const canvasFontFace = new FontFace("JetBrains Mono NL", 'url("../fonts/JetBrainsMonoNL_Bold.ttf")');
     canvasFontFace.weight = 800;
 
@@ -107,7 +102,7 @@ export default function Preview({ colors, variant }) {
         console.log("Converting shonk to bash...");
         let bashScript = "";
 
-        if (document.getElementById("option-loop").getAttribute("data-checked") === "true") {
+        if (looped === true) {
             for (let i = 0; i < shonkArray.length; i++) {
                 bashScript += bashHEX(colors[i % colors.length], shonkArray[i]);
             }
@@ -119,7 +114,26 @@ export default function Preview({ colors, variant }) {
             });
         }
 
-        return new File(['echo -e "' + bashScript + '"'], "shonk.sh", {type: "text/plain"});
+        return new File(['#!/bin/bash\necho -e "' + bashScript + '"'], "shonk.sh", {type: "text/plain"});
+    }
+
+    function shonkToFishShell() {
+        console.log("Converting shonk to fish...");
+        let fishScript = "";
+
+        if (looped === true) {
+            for (let i = 0; i < shonkArray.length; i++) {
+                fishScript += `set_color ${colors[i % colors.length].slice(1)}; echo "${shonkArray[i]}"; `;
+            }
+        } else {
+            colorize();
+
+            colorArray.forEach((color, index) => {
+                fishScript += `set_color ${color.slice(1)}; echo "${shonkArray[index]}"; `;
+            });
+        }
+
+        return new File(["function shonk\n", fishScript, "\nend\n"], "shonk.fish", {type: "text/plain"});
     }
 
     async function loadFont(fontFace) {
@@ -142,7 +156,7 @@ export default function Preview({ colors, variant }) {
             </div>
             <button id="download-button" className="pointer" onClick={() => showDownloadModal(true)}><Download size={32} color={textColor} strokeWidth={1.75} /></button>
         
-            {showingDownloadModal && <DownloadModal showDownloadModal={showDownloadModal} downloadShonk={downloadShonk} shonkToBash={shonkToBash} />}
+            {showingDownloadModal && <DownloadModal showDownloadModal={showDownloadModal} downloadShonk={downloadShonk} shonkToBash={shonkToBash} shonkToFishShell={shonkToFishShell} />}
         </section>
     )
 }

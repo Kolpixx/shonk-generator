@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Check } from 'lucide-react';
 import { accentColor } from '../../../consts';
 
-export default function DownloadModal({ showDownloadModal, downloadShonk, shonkToBash }) {
+export default function DownloadModal({ showDownloadModal, downloadShonk, shonkToBash, shonkToFishShell }) {
     const [transparentBG, setTransParentBG] = useState(true);
     const [scale, setScale] = useState(2);
 
@@ -11,6 +11,13 @@ export default function DownloadModal({ showDownloadModal, downloadShonk, shonkT
         const link = document.createElement("a");
         link.download = "shonk.sh";
         link.href = URL.createObjectURL(shonkToBash());
+        link.click();
+    }
+
+    function downloadFishScript() {
+        const link = document.createElement("a");
+        link.download = "shonk.fish";
+        link.href = URL.createObjectURL(shonkToFishShell());
         link.click();
     }
 
@@ -38,7 +45,8 @@ export default function DownloadModal({ showDownloadModal, downloadShonk, shonkT
                 }
                 <div id="download-modal-buttons">
                     <button className="download-modal-button pointer" onClick={() => {downloadShonk(scale, (!transparentBG ? document.getElementById("background-color-picker").value : "transparent")); showDownloadModal(false)}}>Download</button>
-                    <button className="download-modal-button pointer" onClick={() => {downloadBashScript()}}>Export in bash</button>
+                    <button className="download-modal-button pointer" onClick={() => {downloadBashScript(); showDownloadModal(false)}}>Export in bash</button>
+                    <button className="download-modal-button pointer" onClick={() => {downloadFishScript(); showDownloadModal(false)}}>Export in Fish</button>
                 </div>
             </div>
         </div>
