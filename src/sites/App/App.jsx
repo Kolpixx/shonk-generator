@@ -1,5 +1,5 @@
 import './App.css'
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { shonkVariants } from '../../shonks';
 import { GitBranch } from 'lucide-react';
 import { textColor2 } from '../../consts';
@@ -14,11 +14,25 @@ export const FontContext = createContext(undefined);
 export const DropShadowContext = createContext(undefined);
 
 function App() {
-  const [colors, setColors] = useState(["#FFFFFF"]);
-  const [variant, setVariant] = useState("Variant #1");
-  const [looped, setLooped] = useState(false);
-  const [font, setFont] = useState("JetBrains Mono NL");
-  const [dropShadow, setDropShadow] = useState(true);
+  const preferences = JSON.parse(localStorage.getItem("preferences")) || {};
+
+  const [colors, setColors] = useState(preferences.colors || ["#FFFFFF"]);
+  const [variant, setVariant] = useState(preferences.variant || "Variant #1");
+  const [looped, setLooped] = useState(preferences.looped || false);
+  const [font, setFont] = useState(preferences.font || "JetBrains Mono NL");
+  const [dropShadow, setDropShadow] = useState(preferences.dropShadow || true);
+
+  useEffect(() => {
+    const preferencesJSON = {
+      colors: colors,
+      variant: variant,
+      looped: looped,
+      font: font,
+      dropShadow: dropShadow
+    }
+
+    localStorage.setItem("preferences", JSON.stringify(preferencesJSON));
+  }, [colors, variant, looped, font, dropShadow]);
 
   return (
     <DropShadowContext value={[dropShadow, setDropShadow]}>
