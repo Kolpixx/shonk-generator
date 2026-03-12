@@ -9,7 +9,7 @@ export default function Checkbox({ updateShonk, state, setState }) {
     }, [state]);
  
     return (
-        <div className="checkbox pointer" id="option-loop" data-checked={state} onClick={() => {setState(!state)}}>
+        <div className="checkbox pointer" data-checked={state} onClick={() => {setState(!state)}}>
             {state && <Check size={32} color={accentColor} strokeWidth={1.75} />}
         </div>
     )

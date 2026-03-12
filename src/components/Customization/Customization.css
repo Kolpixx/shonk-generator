@@ -53,7 +53,7 @@
     width: fit-content;
 }
 
-#customization-preferences-settings {
+.customization-settings {
     display: flex;
     flex-direction: column;
     gap: 10px;

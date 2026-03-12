@@ -25,12 +25,13 @@ export default function GeneralCategory({ updateShonk }) {
     return (
         <div id="customization-preferences">
             <h2>Preferences</h2>
-            <div id="customization-preferences-settings">
+            <div className="customization-settings">
                 <div className="settings-checkbox">
                     <Checkbox
                         updateShonk={updateShonk}
                         state={looped}
                         setState={setLooped}
+                        id="option-loop"
                     />
                     <label htmlFor="option-loop">Loop</label>
                 </div>
