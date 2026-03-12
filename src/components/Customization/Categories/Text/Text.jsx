@@ -15,8 +15,8 @@ export default function TextCategory({ updateShonk }) {
 
     return (
         <div id="customization-text">
+            <h2>Font</h2>
             <div className="customization-settings">
-                <h2>Font</h2>
                 <Dropdown
                     options={fontVariants}
                     setState={setFont}
