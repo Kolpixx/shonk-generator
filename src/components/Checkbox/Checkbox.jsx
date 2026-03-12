@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 
 export default function Checkbox({ updateShonk, state, setState }) {
     useEffect(() => {
-        updateShonk();
+        updateShonk && updateShonk();
     }, [state]);
  
     return (

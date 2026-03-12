@@ -29,7 +29,7 @@ export default function TextCategory({ updateShonk }) {
                         updateShonk={updateShonk}
                         id="option-dropshadow"
                     />
-                    <label for="option-dropshadow">Shadow</label>
+                    <label htmlFor="option-dropshadow">Shadow</label>
                 </div>
             </div>
         </div>
