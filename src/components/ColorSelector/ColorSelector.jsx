@@ -18,7 +18,8 @@ export default function ColorSelector({color, index, colors, setColors, updateSh
     // Somehow need to tell the user that you can delete colors w/ right click or maybe not idk.
     function removeColor() {
         if (index === 0 && colors.length === 1) {
-            console.log("Index of the element is '0' and the length of Array 'colors' is '1'. Won't delete.")
+            console.log("Index of the element is '0' and the length of Array 'colors' is '1'. Will change color to white.");
+            setColors(["#FFFFFF"]);
             return;
         }
 
