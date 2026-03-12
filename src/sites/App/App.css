@@ -134,7 +134,7 @@ section {
     position: relative;
     padding: 40px 20px;
     background-color: var(--background-1);
-    border-radius: 15px;
+    border-radius: 12px;
     height: fit-content;
 }
 
@@ -153,9 +153,9 @@ section[data-title]::before {
     color: var(--accent-color);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 600px) {
     section {
-        width: 90%;
+        width: 100%;
     }
 }
 

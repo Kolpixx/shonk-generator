@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 20%;
+    width: 320px;
 }
 
 .settings-checkbox {
@@ -62,10 +62,22 @@
             background: var(--background-2);
         }
     }
+
+    @media (max-width: 600px) {
+        top: -48px;
+        left: unset;
+        right: 12px;
+        flex-direction: row;
+
+        & > li {
+            border-radius: 12px 12px 0 0;
+        }
+
+    }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 600px) {
     #customization {
-        width: 90%;
+        width: 100%;
     }
 }
