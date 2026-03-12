@@ -12,6 +12,7 @@ export const ColorsContext = createContext(undefined);
 export const LoopedContext = createContext(undefined);
 export const FontContext = createContext(undefined);
 export const DropShadowContext = createContext(undefined);
+export const HasSeenTipContext = createContext(undefined);
 
 function App() {
   const preferences = JSON.parse(localStorage.getItem("preferences")) || {};
@@ -21,6 +22,7 @@ function App() {
   const [looped, setLooped] = useState(preferences.looped || false);
   const [font, setFont] = useState(preferences.font || "JetBrains Mono NL");
   const [dropShadow, setDropShadow] = useState(preferences.dropShadow || true);
+  const [hasSeenTip, setHasSeenTip] = useState(preferences.hasSeenTip || false);
 
   useEffect(() => {
     const preferencesJSON = {
@@ -28,47 +30,50 @@ function App() {
       variant: variant,
       looped: looped,
       font: font,
-      dropShadow: dropShadow
+      dropShadow: dropShadow,
+      hasSeenTip: hasSeenTip
     }
 
     localStorage.setItem("preferences", JSON.stringify(preferencesJSON));
-  }, [colors, variant, looped, font, dropShadow]);
+  }, [colors, variant, looped, font, dropShadow, hasSeenTip]);
 
   return (
-    <DropShadowContext value={[dropShadow, setDropShadow]}>
-      <FontContext value={[font, setFont]}>
-        <LoopedContext value={[looped, setLooped]}>
-          <ColorsContext value={[colors, setColors]}>
-            <VariantContext value={[variant, setVariant]}>
-              <header>
-                <h1>Shonk Generator</h1>
-              </header>
-              <main>
-                <Customization
-                  colors={colors}
-                  setColors={setColors}
-                  variant={variant}
-                />
-                <Preview
-                  colors={colors}
-                  variant={shonkVariants[variant]}
-                />
-              </main>
-              <footer>
-                <Link to={"/credits"}>Credits</Link>
-                <GitBranch
-                  size={44}
-                  color={textColor2}
-                  strokeWidth={1.75}
-                  className="pointer"
-                  onClick={() => window.open("https://github.com/Kolpixx/shonk-generator/")}
-                />
-              </footer>
-            </VariantContext>
-          </ColorsContext>
-        </LoopedContext>
-      </FontContext>
-    </DropShadowContext>
+    <HasSeenTipContext value={[hasSeenTip, setHasSeenTip]}>
+      <DropShadowContext value={[dropShadow, setDropShadow]}>
+        <FontContext value={[font, setFont]}>
+          <LoopedContext value={[looped, setLooped]}>
+            <ColorsContext value={[colors, setColors]}>
+              <VariantContext value={[variant, setVariant]}>
+                <header>
+                  <h1>Shonk Generator</h1>
+                </header>
+                <main>
+                  <Customization
+                    colors={colors}
+                    setColors={setColors}
+                    variant={variant}
+                  />
+                  <Preview
+                    colors={colors}
+                    variant={shonkVariants[variant]}
+                  />
+                </main>
+                <footer>
+                  <Link to={"/credits"}>Credits</Link>
+                  <GitBranch
+                    size={44}
+                    color={textColor2}
+                    strokeWidth={1.75}
+                    className="pointer"
+                    onClick={() => window.open("https://github.com/Kolpixx/shonk-generator/")}
+                  />
+                </footer>
+              </VariantContext>
+            </ColorsContext>
+          </LoopedContext>
+        </FontContext>
+      </DropShadowContext>
+    </HasSeenTipContext>
   )
 }
 

@@ -1,14 +1,15 @@
 import './Colors.css'
-import { useContext, useState } from 'react'
-import { ColorsContext } from '../../../../sites/App/App'
+import { useContext, useEffect, useState } from 'react'
+import { ColorsContext, HasSeenTipContext } from '../../../../sites/App/App'
 import { presetColors, textColor } from '../../../../consts';
 import PresetColors from '../../PresetColors/PresetColors';
 import ColorSelector from '../../../ColorSelector/ColorSelector'
-import { ChevronDown, ChevronUp, Plus } from 'lucide-react';
+import { ChevronDown, ChevronUp, Plus, X } from 'lucide-react';
 
 export default function ColorsCategory({ updateShonk, shonkArray }) {
     const [colors, setColors] = useContext(ColorsContext);
     const [showingPresets, showPresets] = useState(false);
+    const [hasSeenTip, setHasSeenTip] = useContext(HasSeenTipContext);
 
     const presetColorCombinations = [];
     for (const colorCombinationLabel in presetColors) {
@@ -40,6 +41,25 @@ export default function ColorsCategory({ updateShonk, shonkArray }) {
                                 strokeWidth={1.75}
                             />
                         </button>
+                    }
+                    {
+                        !hasSeenTip &&
+                        <>
+                            <div id="colors-tip-backdrop" onClick={() => setHasSeenTip(true)} />
+                            <div id="colors-tip">
+                                <button id="colors-tip-close" onClick={(e) => {e.stopPropagation(); setHasSeenTip(true);}}> {/* Top Right: Smol & 100% Round Close Button with border? :3 */}
+                                    <X
+                                        color={textColor}
+                                        size={20}
+                                    />
+                                </button>
+                                <h2>Tip!</h2>
+                                <p id="colors-text">
+                                    Left Click: Change Color<br />
+                                    Right Click: Remove Color
+                                </p>
+                            </div>
+                        </>
                     }
                 </div>
             </div>

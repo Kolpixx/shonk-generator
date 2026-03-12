@@ -13,14 +13,6 @@
     border-radius: 10px;
 }
 
-#add-color {
-    height: 50px;
-    width: 50px;
-    border: 2px solid var(--background);
-    border-radius: 10px;
-    background: var(--background-2);
-}
-
 #customization {
     display: flex;
     flex-direction: column;
@@ -34,36 +26,10 @@
     gap: 10px;
 }
 
-#customization-colors-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-#preset-combinations {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-#presets > h2 {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    width: fit-content;
-}
-
 .customization-settings {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.settings-variants {
-    display: flex;
-    align-items: flex-start;
-    gap: 5px;
-    flex-wrap: wrap;
 }
 
 #edit-custom-button {

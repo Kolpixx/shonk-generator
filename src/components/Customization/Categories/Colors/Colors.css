@@ -1,0 +1,68 @@
+#customization-colors-buttons {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#preset-combinations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#presets > h2 {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: fit-content;
+}
+
+#add-color {
+    height: 50px;
+    width: 50px;
+    border: 2px solid var(--background);
+    border-radius: 10px;
+    background: var(--background-2);
+}
+
+#colors-tip-backdrop {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, .1);
+}
+
+#colors-tip {
+    position: absolute;
+    background: var(--background-2);
+    padding: 10px;
+    top: 110%;
+    border-radius: 8px;
+    z-index: 3;
+
+    & > #colors-tip-close {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: var(--background);
+        border-radius: 100%;
+        border: none;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & > #colors-text {
+        font-family: var(--default-font);
+        color: var(--text);
+        font-size: 24px;
+
+    }
+}
