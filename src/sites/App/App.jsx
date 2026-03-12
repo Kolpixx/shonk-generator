@@ -2,7 +2,7 @@ import './App.css'
 import { createContext, useEffect, useState } from 'react'
 import { shonkVariants } from '../../shonks';
 import { GitBranch } from 'lucide-react';
-import { textColor2 } from '../../consts';
+import { presetColors, textColor2 } from '../../consts';
 import { Link } from 'react-router-dom';
 import Customization from '../../components/Customization/Customization'
 import Preview from '../../components/Preview/Preview'
@@ -20,7 +20,7 @@ export const BackgroundColorContext = createContext(undefined);
 function App() {
   const preferences = JSON.parse(localStorage.getItem("preferences")) || {};
 
-  const [colors, setColors] = useState(preferences.colors || ["#FFFFFF"]);
+  const [colors, setColors] = useState(preferences.colors || presetColors["Rainbow Pride"]);
   const [variant, setVariant] = useState(preferences.variant || "Variant #1");
   const [looped, setLooped] = useState(preferences.looped || false);
   const [font, setFont] = useState(preferences.font || "JetBrains Mono NL");
