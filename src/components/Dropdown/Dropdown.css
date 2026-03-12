@@ -20,7 +20,9 @@
     background: var(--background-2);
     color: var(--text);
     z-index: 2;
+    
     & > p {
+        width: 100%;
         display: flex;
         align-items: center;
         gap: 5px;
@@ -47,6 +49,7 @@
 
 .dropdown-option {
     padding: 0 10px;
+    
     &:hover {
         background: var(--background-2-hover);
     }
