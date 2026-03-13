@@ -1,15 +1,29 @@
 import './Preview.css'
 import { useContext, useEffect, useState } from 'react';
-import { DropShadowContext, FontContext, LoopedContext } from '../../sites/App/App';
-import { Download } from 'lucide-react';
-import { bashHEX, getLongestString } from '../../utils';
+import { CustomASCIIContext, DropShadowContext, FontContext, LoopedContext, VariantContext } from '../../sites/App/App';
+import { Download, Share2 } from 'lucide-react';
+import { bashHEX, getLongestString, shareShonk } from '../../utils';
 import DownloadModal from './DownloadModal/DownloadModal';
+import { toast } from 'react-toastify';
 
 export default function Preview({ colors, variant }) {
     const [showingDownloadModal, showDownloadModal] = useState(false);
-    const [font, setFont] = useContext(FontContext);
-    const [dropShadow, setDropShadow] = useContext(DropShadowContext);
+
     const [looped] = useContext(LoopedContext);
+    const [font] = useContext(FontContext);
+    const [dropShadow] = useContext(DropShadowContext);
+    const [customASCII] = useContext(CustomASCIIContext);
+    const [variantName] = useContext(VariantContext);
+
+    const json = {
+        "colors": colors,
+        "variant": variantName,
+        "looped": looped,
+        "font": font,
+        "dropShadow": dropShadow,
+        "customASCII": customASCII
+    };
+
     const shonkArray = variant.split(/\r\n|\n/);
     const colorArray = [...colors];
 
@@ -149,8 +163,11 @@ export default function Preview({ colors, variant }) {
             <div id="canvas-container">
                 <canvas id="preview-canvas">Seems like your browser doesn't support the canvas element :P (The site won't work without it!!)</canvas>
             </div>
-            <button id="download-button" className="pointer" onClick={() => showDownloadModal(true)}><Download size={32} strokeWidth={1.75} /></button>
-        
+            <div id="preview-buttons">
+                <button id="share-button" className="pointer" onClick={() => {navigator.clipboard.writeText(shareShonk(json)); toast.success("Copied to clipboard!")}}><Share2 size={32} strokeWidth={1.75} /></button>
+                <button id="download-button" className="pointer" onClick={() => showDownloadModal(true)}><Download size={32} strokeWidth={1.75} /></button>
+            </div>
+
             {showingDownloadModal && <DownloadModal showDownloadModal={showDownloadModal} downloadShonk={downloadShonk} shonkToBash={shonkToBash} shonkToFishShell={shonkToFishShell} />}
         </section>
     )

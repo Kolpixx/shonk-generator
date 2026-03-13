@@ -31,6 +31,11 @@
 
     --red: #C90D0D;
     --green: #0DC93F;
+
+    /* Toastify */
+    --toastify-text-color-dark: var(--text) !important;
+    --toastify-color-dark: var(--background-1) !important;
+    --toastify-color-success: var(--green) !important;
 }
 
 .lucide {
@@ -192,4 +197,11 @@ section[data-title]::before {
     background: var(--background-2);
     border: 2px solid var(--background);
     border-radius: 15px;
+}
+
+.Toastify {
+    position: absolute;
+    padding: 0;
+    height: 0;
+    width: 0;
 }

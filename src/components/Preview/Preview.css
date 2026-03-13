@@ -11,23 +11,30 @@
     overflow: auto;
 }
 
-#download-button {
-    opacity: 50%;
-    transition: 0.3s ease all;
+#preview-buttons {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     bottom: 15px;
     right: 15px;
-    background-color: var(--background-2);
-    border: none;
-    padding: 7px;
-    border-radius: 10px;
+    gap: 5px;
 
-    & > svg {
-        color: var(--text);
+    & > button {
+        position: relative;
+        opacity: 50%;
+        transition: 0.3s ease all;
+        background-color: var(--background-2);
+        border: none;
+        padding: 7px;
+        border-radius: 10px;
+
+        & > svg {
+            color: var(--text);
+        }
+
+        &:hover {
+            background-color: var(--background-2-hover);
+            opacity: 100%;
+        }
     }
-}
-
-#download-button:hover {
-    background-color: var(--background-2-hover);
-    opacity: 100%;
 }

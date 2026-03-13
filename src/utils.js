@@ -18,3 +18,20 @@ export function hexToRGB(hex) {
     ];
     return aRgb;
 }
+
+export function uint8ArrayToBase64(bytes) {
+    let binaryString = "";
+    bytes.forEach((byte) => {
+        binaryString += String.fromCharCode(byte);
+    });
+
+    return btoa(binaryString);
+}
+
+export function shareShonk(json) {
+    const encoder = new TextEncoder;
+    const utf8bytes = encoder.encode(JSON.stringify(json));
+    const base64 = encodeURIComponent(uint8ArrayToBase64(utf8bytes));
+
+    return `http://localhost:5173/?preset=${base64}`;
+}

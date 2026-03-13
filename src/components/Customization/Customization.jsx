@@ -11,6 +11,7 @@ export default function Customization({ colors, setColors }) {
     const [category, setCategory] = useState("general");
     const [variant, setVariant] = useContext(VariantContext);
 
+    console.log(variant, shonkVariants[variant]);
     let shonkArray = shonkVariants[variant].split(/\r\n|\n/);
 
     function updateShonk() {

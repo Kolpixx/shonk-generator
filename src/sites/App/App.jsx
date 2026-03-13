@@ -6,6 +6,7 @@ import { presetColors } from '../../consts';
 import { Link } from 'react-router-dom';
 import Customization from '../../components/Customization/Customization'
 import Preview from '../../components/Preview/Preview'
+import { ToastContainer } from 'react-toastify';
 
 export const VariantContext = createContext(undefined);
 export const ColorsContext = createContext(undefined);
@@ -31,6 +32,22 @@ function App() {
   const [backgroundColor, setBackgroundColor] = useState(preferences.transparentBG || "#000000")
   const [hasSeenTip, setHasSeenTip] = useState(preferences.hasSeenTip || false);
   const [customASCII, setCustomASCII] = useState(preferences.customASCII || "Press the edit button next to the variant selector to change this text\n\n:3");
+
+  useEffect(() => {
+    const params = new URLSearchParams(document.location.search);
+    const preset = params.get("preset");
+
+    if (preset !== null) {
+      const presetJSON = JSON.parse(decodeURIComponent(atob(preset)));
+
+      setColors(presetJSON.colors);
+      setCustomASCII(presetJSON.customASCII);
+      setDropShadow(presetJSON.dropShadow);
+      setFont(presetJSON.font);
+      setLooped(presetJSON.looped);
+      setVariant(presetJSON.variant);
+    }
+  }, []);
 
   useEffect(() => {
     const preferencesJSON = {
@@ -84,6 +101,13 @@ function App() {
                             onClick={() => window.open("https://github.com/Kolpixx/shonk-generator/")}
                           />
                         </footer>
+                        <ToastContainer
+                          position="bottom-right"
+                          theme="dark"
+                          newestOnTop={true}
+                          closeOnClick={true}
+                          autoClose={1500}
+                        />
                       </VariantContext>
                     </ColorsContext>
                   </LoopedContext>
