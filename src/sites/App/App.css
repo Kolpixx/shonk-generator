@@ -110,6 +110,10 @@ footer {
     padding: 5px;
     margin-top: auto;
 
+    & > #footer-repo-svg {
+        color: var(--text-2);
+    }
+
     & a {
         transition: 0.3s ease all;
         color: var(--text-2);

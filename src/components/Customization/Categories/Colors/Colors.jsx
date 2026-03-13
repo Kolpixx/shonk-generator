@@ -1,7 +1,7 @@
 import './Colors.css'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { ColorsContext, HasSeenTipContext } from '../../../../sites/App/App'
-import { presetColors, textColor } from '../../../../consts';
+import { presetColors } from '../../../../consts';
 import PresetColors from '../../PresetColors/PresetColors';
 import ColorSelector from '../../../ColorSelector/ColorSelector'
 import { ChevronDown, ChevronUp, Plus, X } from 'lucide-react';
@@ -37,7 +37,6 @@ export default function ColorsCategory({ updateShonk, shonkArray }) {
                         <button className="pointer" id="add-color" onClick={() => {setColors([...colors, "#FFFFFF"])}}>
                             <Plus
                                 size={44}
-                                color={textColor}
                                 strokeWidth={1.75}
                             />
                         </button>
@@ -49,7 +48,6 @@ export default function ColorsCategory({ updateShonk, shonkArray }) {
                             <div id="colors-tip">
                                 <button id="colors-tip-close" onClick={(e) => {e.stopPropagation(); setHasSeenTip(true);}}> {/* Top Right: Smol & 100% Round Close Button with border? :3 */}
                                     <X
-                                        color={textColor}
                                         size={20}
                                     />
                                 </button>

@@ -2,7 +2,7 @@ import './App.css'
 import { createContext, useEffect, useState } from 'react'
 import { shonkVariants } from '../../shonks';
 import { GitBranch } from 'lucide-react';
-import { presetColors, textColor2 } from '../../consts';
+import { presetColors } from '../../consts';
 import { Link } from 'react-router-dom';
 import Customization from '../../components/Customization/Customization'
 import Preview from '../../components/Preview/Preview'
@@ -73,8 +73,8 @@ function App() {
                       <footer>
                         <Link to={"/credits"}>Credits</Link>
                         <GitBranch
+                          id="footer-repo-svg"
                           size={44}
-                          color={textColor2}
                           strokeWidth={1.75}
                           className="pointer"
                           onClick={() => window.open("https://github.com/Kolpixx/shonk-generator/")}

@@ -63,6 +63,10 @@
         }
     }
 
+    & svg {
+        color: var(--text);
+    }
+
     @media (max-width: 600px) {
         top: -48px;
         left: unset;

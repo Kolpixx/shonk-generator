@@ -1,7 +1,6 @@
 import './Customization.css'
 import { useContext, useEffect, useState } from 'react'
 import { CaseSensitive, Hammer, Palette } from 'lucide-react'
-import { textColor } from '../../consts'
 import { shonkVariants } from '../../shonks'
 import { VariantContext } from '../../sites/App/App'
 import GeneralCategory from './Categories/General/General'
@@ -33,21 +32,18 @@ export default function Customization({ colors, setColors }) {
                 <li onClick={() => setCategory("general")} style={{backgroundColor: category === "general" && "var(--background-2)"}}>
                     <Hammer
                         size={32}
-                        color={textColor}
                         strokeWidth={1.75}
                     />
                 </li>
                 <li onClick={() => setCategory("colors")} style={{backgroundColor: category === "colors" && "var(--background-2)"}}>
                     <Palette
                         size={32}
-                        color={textColor}
                         strokeWidth={1.75}
                     />
                 </li>
                 <li onClick={() => setCategory("text")} style={{backgroundColor: category === "text" && "var(--background-2)"}}>
                     <CaseSensitive
                         size={32}
-                        color={textColor}
                         strokeWidth={1.75}
                     />
                 </li>

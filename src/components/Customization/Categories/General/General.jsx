@@ -2,7 +2,6 @@ import './General.css'
 import { useContext, useEffect, useState } from 'react'
 import { SquarePen } from 'lucide-react'
 import { shonkVariants } from '../../../../shonks'
-import { textColor } from '../../../../consts'
 import { LoopedContext, VariantContext } from '../../../../sites/App/App'
 import Checkbox from '../../../Checkbox/Checkbox'
 import Dropdown from '../../../Dropdown/Dropdown'
@@ -45,7 +44,6 @@ export default function GeneralCategory({ updateShonk }) {
                         <button id="edit-custom-button">
                             <SquarePen 
                                 size={36}
-                                color={textColor}
                                 strokeWidth={1.75}
                                 onClick={() => {showEditingScreen(true)}}
                             />

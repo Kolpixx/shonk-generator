@@ -2,7 +2,6 @@ import './Preview.css'
 import { useContext, useEffect, useState } from 'react';
 import { DropShadowContext, FontContext, LoopedContext } from '../../sites/App/App';
 import { Download } from 'lucide-react';
-import { textColor } from '../../consts';
 import { bashHEX, getLongestString } from '../../utils';
 import DownloadModal from './DownloadModal/DownloadModal';
 
@@ -150,7 +149,7 @@ export default function Preview({ colors, variant }) {
             <div id="canvas-container">
                 <canvas id="preview-canvas">Seems like your browser doesn't support the canvas element :P (The site won't work without it!!)</canvas>
             </div>
-            <button id="download-button" className="pointer" onClick={() => showDownloadModal(true)}><Download size={32} color={textColor} strokeWidth={1.75} /></button>
+            <button id="download-button" className="pointer" onClick={() => showDownloadModal(true)}><Download size={32} strokeWidth={1.75} /></button>
         
             {showingDownloadModal && <DownloadModal showDownloadModal={showDownloadModal} downloadShonk={downloadShonk} shonkToBash={shonkToBash} shonkToFishShell={shonkToFishShell} />}
         </section>

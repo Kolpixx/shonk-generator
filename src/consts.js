@@ -1,8 +1,3 @@
-// This seems like horrible practice 😭😭
-export const accentColor = "#CAE6FF";
-export const textColor =  "#f5faff";
-export const textColor2 = "#737577";
-
 // Preset colors
 export const presetColors = {
     "Rainbow Pride": ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004CFF", "#732982"],

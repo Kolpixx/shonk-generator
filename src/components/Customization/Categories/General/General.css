@@ -4,3 +4,7 @@
     gap: 5px;
     flex-wrap: wrap;
 }
+
+#edit-custom-button > svg {
+    color: var(--text);
+}

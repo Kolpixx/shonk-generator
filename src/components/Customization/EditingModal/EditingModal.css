@@ -17,6 +17,11 @@
     padding: 7px;
     border-radius: 10px;
     transition: 0.2s ease all;
+
+    & > svg {
+        color: var(--text);
+    }
+
     &:hover {
         opacity: 100%;
         background-color: var(--background-1-hover);

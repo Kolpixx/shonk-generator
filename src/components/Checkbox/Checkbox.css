@@ -5,6 +5,10 @@
     border: 2px solid var(--background);
     border-radius: 10px;
     transition: 0.3s ease all;
+
+    & > svg {
+        color: var(--text);
+    }
 }
 
 .checkbox[data-checked=true] {

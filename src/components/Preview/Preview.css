@@ -21,6 +21,10 @@
     border: none;
     padding: 7px;
     border-radius: 10px;
+
+    & > svg {
+        color: var(--text);
+    }
 }
 
 #download-button:hover {
