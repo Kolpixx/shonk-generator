@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Customization from '../../components/Customization/Customization'
 import Preview from '../../components/Preview/Preview'
 import { ToastContainer } from 'react-toastify';
+import ImportDialog from '../../components/ImportDialog/ImportDialog';
 
 export const VariantContext = createContext(undefined);
 export const ColorsContext = createContext(undefined);
@@ -22,6 +23,7 @@ export const CustomASCIIContext = createContext(undefined);
 function App() {
   const preferences = JSON.parse(localStorage.getItem("preferences")) || {};
 
+  const [showingImportDialog, showImportDialog] = useState(undefined);
   const [colors, setColors] = useState(preferences.colors || presetColors["Rainbow Pride"]);
   const [variant, setVariant] = useState(preferences.variant || "Variant #1");
   const [looped, setLooped] = useState(preferences.looped || false);
@@ -33,19 +35,25 @@ function App() {
   const [hasSeenTip, setHasSeenTip] = useState(preferences.hasSeenTip || false);
   const [customASCII, setCustomASCII] = useState(preferences.customASCII || "Press the edit button next to the variant selector to change this text\n\n:3");
 
+  function applyPreset() {
+    const params = new URLSearchParams(document.location.search);
+    const preset = params.get("preset");
+    const presetJSON = JSON.parse(decodeURIComponent(atob(preset)));
+
+    setColors(presetJSON.colors);
+    setCustomASCII(presetJSON.customASCII);
+    setDropShadow(presetJSON.dropShadow);
+    setFont(presetJSON.font);
+    setLooped(presetJSON.looped);
+    setVariant(presetJSON.variant);
+  }
+
   useEffect(() => {
     const params = new URLSearchParams(document.location.search);
     const preset = params.get("preset");
 
     if (preset !== null) {
-      const presetJSON = JSON.parse(decodeURIComponent(atob(preset)));
-
-      setColors(presetJSON.colors);
-      setCustomASCII(presetJSON.customASCII);
-      setDropShadow(presetJSON.dropShadow);
-      setFont(presetJSON.font);
-      setLooped(presetJSON.looped);
-      setVariant(presetJSON.variant);
+      showImportDialog(true);
     }
   }, []);
 
@@ -101,6 +109,12 @@ function App() {
                             onClick={() => window.open("https://github.com/Kolpixx/shonk-generator/")}
                           />
                         </footer>
+                        {showingImportDialog &&
+                          <ImportDialog
+                            showImportDialog={showImportDialog}
+                            applyPreset={applyPreset}
+                          />
+                        }
                         <ToastContainer
                           position="bottom-right"
                           theme="dark"
